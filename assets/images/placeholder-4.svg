@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#19070a" />
+      <stop offset="50%" stop-color="#3b1115" />
+      <stop offset="100%" stop-color="#120405" />
+    </linearGradient>
+    <linearGradient id="goldGrad4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffd56b" />
+      <stop offset="50%" stop-color="#d4af37" />
+      <stop offset="100%" stop-color="#996515" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="800" fill="url(#bgGrad4)" />
+  <rect x="25" y="25" width="1150" height="750" fill="none" stroke="url(#goldGrad4)" stroke-width="2" rx="16" />
+  <rect x="35" y="35" width="1130" height="730" fill="none" stroke="#d4af37" stroke-opacity="0.3" stroke-width="1" stroke-dasharray="6,4" rx="12" />
+
+  <!-- Multi-tier Aarti Lamp Emblem -->
+  <g transform="translate(600, 310)">
+    <!-- Base -->
+    <path d="M-60 110 L60 110 L80 130 L-80 130 Z" fill="#78340d" stroke="url(#goldGrad4)" stroke-width="2" />
+    <rect x="-12" y="50" width="24" height="60" fill="url(#goldGrad4)" rx="4"/>
+    <!-- Tier 1 -->
+    <ellipse cx="0" cy="50" rx="90" ry="14" fill="#a16207" stroke="url(#goldGrad4)" stroke-width="2"/>
+    <!-- Tier 2 -->
+    <rect x="-9" y="0" width="18" height="50" fill="url(#goldGrad4)" rx="3"/>
+    <ellipse cx="0" cy="0" rx="65" ry="12" fill="#a16207" stroke="url(#goldGrad4)" stroke-width="2"/>
+    <!-- Tier 3 -->
+    <rect x="-7" y="-45" width="14" height="45" fill="url(#goldGrad4)" rx="2"/>
+    <ellipse cx="0" cy="-45" rx="40" ry="10" fill="#a16207" stroke="url(#goldGrad4)" stroke-width="2"/>
+    
+    <!-- Top Flame -->
+    <circle cx="0" cy="-85" r="28" fill="#ff8c00" opacity="0.35"/>
+    <path d="M0 -120 Q20 -80 0 -60 Q-20 -80 0 -120 Z" fill="#facc15" stroke="#ea580c" stroke-width="2"/>
+    <circle cx="0" cy="-75" r="5" fill="#fff" />
+  </g>
+
+  <text x="600" y="470" text-anchor="middle" font-family="'Rozha One', 'Georgia', serif" font-size="36" fill="url(#goldGrad4)" letter-spacing="4">
+    अयोध्या दीपोत्सव • महायज्ञ
+  </text>
+  <text x="600" y="520" text-anchor="middle" font-family="'Outfit', sans-serif" font-size="20" fill="#f3d4a0" letter-spacing="3" opacity="0.9">
+    AYODHYA DEEPOTSAV • FESTIVAL OF ILLUMINATION
+  </text>
+
+  <g transform="translate(600, 620)">
+    <rect x="-240" y="-30" width="480" height="60" rx="30" fill="#2d170a" stroke="url(#goldGrad4)" stroke-width="1.5" opacity="0.9" />
+    <text x="0" y="6" text-anchor="middle" font-family="'Outfit', sans-serif" font-size="16" fill="#ffd97d" font-weight="500">
+      📷 Image Placeholder 4 • Replace with assets/images/gallery-4.jpg
+    </text>
+  </g>
+</svg>

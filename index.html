@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ramleela - Ruby Park</title>
+  <meta name="description" content="Experience the divine Treta Yuga era of Ayodhya with streaming Ramleela video and ancient heritage imagery.">
+  
+  <!-- Google Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Outfit:wght@300;400;500;600;700&family=Rozha+One&family=Yatra+One&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🪔</text></svg>">
+</head>
+<body>
+
+  <!-- Floating Sacred Canvas for Diya Embers & Sparkles -->
+  <canvas id="particles-canvas"></canvas>
+  <div class="ambient-glow"></div>
+
+  <!-- Auspicious Vedic Top Ticker (Kept in Sacred Hindi / Devanagari) -->
+  <div class="sacred-ticker-banner">
+    <div class="sacred-ticker-content">
+      <span class="sacred-symbol">ॐ</span>
+      <span>मंगल भवन अमंगल हारी • द्रवहु सुदसरथ अजिर बिहारी</span>
+      <span class="sacred-symbol">🪔</span>
+      <span>रघुकुल रीत सदा चलि आई • प्रान जाहुँ बरु बचनु न जाई</span>
+      <span class="sacred-symbol">ॐ</span>
+    </div>
+  </div>
+
+  <!-- Main Site Header -->
+  <header class="site-header" id="site-header">
+    <div class="container">
+      <div class="header-ornament-top">
+        <span class="ornament-line"></span>
+        <svg class="ornament-sun" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="5" />
+          <path d="M12 1v3M12 20v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M1 12h3M20 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span class="ornament-line"></span>
+      </div>
+
+      <h1 class="main-title">Ramleela - Ruby Park</h1>
+      <h2 class="main-subtitle">A TIMELESS EVENT</h2>
+
+      <p class="header-description">
+        Immerse yourself in the timeless epic of Maryada Purushottam Lord Sri Rama and the celestial glory of ancient Ayodhya.
+      </p>
+
+      <div class="header-quick-actions">
+        <a href="#video-section" class="btn btn-primary-gold" id="btn-hero-watch">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+          Watch Video
+        </a>
+        <a href="#gallery-section" class="btn btn-outline-gold" id="btn-hero-gallery" style="display: none;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+            <circle cx="8.5" cy="8.5" r="1.5"/>
+            <polyline points="21 15 16 10 5 21"/>
+          </svg>
+          Image Gallery
+        </a>
+        <button class="btn btn-outline-gold" id="btn-temple-bell" title="Play Temple Bell Chime">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+            <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+          </svg>
+          Temple Bell Chime
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Video Section (Hero Showcase) -->
+  <main>
+    <section class="video-section" id="video-section">
+      <div class="container">
+        
+        <div class="video-pavilion-container" id="video-pavilion">
+          <!-- Toran Top Frame -->
+          <div class="mandap-toran-top">
+            <div class="mandap-badge">
+              <span class="live-dot"></span>
+              <span class="mandap-title">STREAMING HD</span>
+            </div>
+
+            <div class="mandap-controls">
+              <!-- Fullscreen Button -->
+              <button class="control-btn btn-fullscreen" id="btn-fullscreen" title="Full Screen Cinema (Press F)">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+                </svg>
+                Fullscreen [F]
+              </button>
+
+              <!-- Theater Mode Button -->
+              <button class="control-btn" id="btn-theater" title="Dim Lights (Press T)">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+                Theater Mode [T]
+              </button>
+            </div>
+          </div>
+
+          <!-- Video Frame Wrapper -->
+          <div class="video-frame-wrapper" id="video-frame-wrapper">
+            <!-- HTML5 Range Streaming Video Player -->
+            <video 
+              id="main-video-player"
+              class="custom-video-stream"
+              controls 
+              preload="metadata" 
+              playsinline
+              poster="assets/images/sample-ayodhya-temple.jpg">
+              <source src="/api/stream-video" type="video/mp4">
+              <source src="https://drive.usercontent.google.com/download?id=1qKjs42FHvkA9tz_5JhZXn9I7L70uWm-K&export=download&confirm=t" type="video/mp4">
+              Your browser does not support HTML5 video streaming.
+            </video>
+
+            <!-- Big Sacred Play Overlay -->
+            <div class="video-play-overlay" id="video-play-overlay">
+              <button class="big-sacred-play-btn" id="big-play-btn" aria-label="Play Streaming Video">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Pavilion Footer & Hotkeys -->
+          <div class="mandap-footer">
+            <div class="video-tips">
+              <span>Tips:</span>
+              <span>Keyboard Shortcuts: <span class="kbd-shortcut">F</span> Fullscreen, <span class="kbd-shortcut">T</span> Theater Mode, <span class="kbd-shortcut">Space</span> Play/Pause, <span class="kbd-shortcut">Esc</span> Exit</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Gallery Section (Hidden for now - preserved intact to add images later) -->
+    <section class="gallery-section" id="gallery-section" style="display: none;">
+      <div class="container">
+        
+        <div class="section-head">
+          <span class="section-tag">IMAGE COLLECTION</span>
+          <h2 class="section-title">Gallery</h2>
+          <p class="section-subtitle">
+            Ramleela Glimpses
+          </p>
+        </div>
+
+        <!-- Gallery Cards Grid -->
+        <div class="gallery-grid" id="gallery-grid">
+          
+          <!-- Card 1 -->
+          <article class="gallery-card" data-index="0">
+            <div class="gallery-card-img-wrapper" title="Click to view full image">
+              <img src="assets/images/placeholder-1.svg" alt="Sri Ram Janmabhoomi Ayodhya" id="img-slot-0" loading="lazy">
+              <div class="card-hover-overlay">
+                <button class="overlay-btn btn-view" data-action="view">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                  View Large
+                </button>
+              </div>
+            </div>
+            <div class="gallery-card-body">
+              <h3 class="card-devanagari-title">Sri Ram Janmabhoomi</h3>
+              <h4 class="card-english-title">Ayodhya Dham • Holy Birthplace</h4>
+              <p class="card-desc">The sacred capital of the Surya dynasty and the divine birthplace of Maryada Purushottam Lord Sri Rama.</p>
+              <div class="card-footer">
+                <span>Sacred Vista</span>
+                <span>Treta Yuga</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="gallery-card" data-index="1">
+            <div class="gallery-card-img-wrapper" title="Click to view full image">
+              <img src="assets/images/placeholder-2.svg" alt="Sacred Saryu Ghats" id="img-slot-1" loading="lazy">
+              <div class="card-hover-overlay">
+                <button class="overlay-btn btn-view" data-action="view">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                  View Large
+                </button>
+              </div>
+            </div>
+            <div class="gallery-card-body">
+              <h3 class="card-devanagari-title">Sacred Saryu Ghats</h3>
+              <h4 class="card-english-title">Holy Saryu River &amp; Evening Aarti</h4>
+              <p class="card-desc">Golden evening Maha Aarti with hundreds of glowing earthen lamps illuminating the holy ripples of river Saryu.</p>
+              <div class="card-footer">
+                <span>Sacred River</span>
+                <span>Maha Aarti</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="gallery-card" data-index="2">
+            <div class="gallery-card-img-wrapper" title="Click to view full image">
+              <img src="assets/images/placeholder-3.svg" alt="Kodanda Dhanush" id="img-slot-2" loading="lazy">
+              <div class="card-hover-overlay">
+                <button class="overlay-btn btn-view" data-action="view">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                  View Large
+                </button>
+              </div>
+            </div>
+            <div class="gallery-card-body">
+              <h3 class="card-devanagari-title">Kodanda Bow &amp; Arrow</h3>
+              <h4 class="card-english-title">Divine Valour &amp; Defender of Dharma</h4>
+              <p class="card-desc">Lord Rama bearing the celestial Kodanda bow, the eternal symbol of righteousness, valour, and moral grace.</p>
+              <div class="card-footer">
+                <span>Sacred Emblem</span>
+                <span>Valour &amp; Dharma</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="gallery-card" data-index="3">
+            <div class="gallery-card-img-wrapper" title="Click to view full image">
+              <img src="assets/images/placeholder-4.svg" alt="Ayodhya Deepotsav" id="img-slot-3" loading="lazy">
+              <div class="card-hover-overlay">
+                <button class="overlay-btn btn-view" data-action="view">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                  View Large
+                </button>
+              </div>
+            </div>
+            <div class="gallery-card-body">
+              <h3 class="card-devanagari-title">Ayodhya Deepotsav</h3>
+              <h4 class="card-english-title">Grand Festival of Illumination</h4>
+              <p class="card-desc">Millions of golden earthen diyas radiating joyous light across the ancient pavilions and royal courtyards of Ayodhya.</p>
+              <div class="card-footer">
+                <span>Sacred Festival</span>
+                <span>Festival of Light</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 5 -->
+          <article class="gallery-card" data-index="4">
+            <div class="gallery-card-img-wrapper" title="Click to view full image">
+              <img src="assets/images/placeholder-5.svg" alt="Sri Ram Darbar" id="img-slot-4" loading="lazy">
+              <div class="card-hover-overlay">
+                <button class="overlay-btn btn-view" data-action="view">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                  View Large
+                </button>
+              </div>
+            </div>
+            <div class="gallery-card-body">
+              <h3 class="card-devanagari-title">Sri Ram Darbar</h3>
+              <h4 class="card-english-title">Royal Coronation &amp; Ram Rajya</h4>
+              <p class="card-desc">The divine assembly with Mata Janaki, Lakshmana, Bharata, Shatrughna, and the supreme devotee Sri Hanuman.</p>
+              <div class="card-footer">
+                <span>Sacred Assembly</span>
+                <span>Ram Rajya</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 6 -->
+          <article class="gallery-card" data-index="5">
+            <div class="gallery-card-img-wrapper" title="Click to view full image">
+              <img src="assets/images/placeholder-6.svg" alt="Sri Ramleela Natak" id="img-slot-5" loading="lazy">
+              <div class="card-hover-overlay">
+                <button class="overlay-btn btn-view" data-action="view">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                  View Large
+                </button>
+              </div>
+            </div>
+            <div class="gallery-card-body">
+              <h3 class="card-devanagari-title">Ramleela Performance</h3>
+              <h4 class="card-english-title">Theatrical Dramatic Heritage</h4>
+              <p class="card-desc">The evocative dramatic enactments, resonant dialogues, and devotional spirit of traditional Ramleela.</p>
+              <div class="card-footer">
+                <span>Cultural Heritage</span>
+                <span>Folk Heritage</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Lightbox Modal -->
+  <div class="lightbox-modal" id="lightbox-modal">
+    <div class="lightbox-content">
+      <button class="lightbox-close-btn" id="lightbox-close" title="Close (Esc)">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+
+      <button class="lightbox-nav-btn lightbox-prev" id="lightbox-prev" title="Previous Image">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+      </button>
+
+      <div class="lightbox-img-wrapper">
+        <img src="" alt="" id="lightbox-img">
+      </div>
+
+      <button class="lightbox-nav-btn lightbox-next" id="lightbox-next" title="Next Image">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polyline points="9 18 15 12 9 6"/>
+        </svg>
+      </button>
+
+      <div class="lightbox-caption">
+        <h3 id="lightbox-title">Title</h3>
+        <p id="lightbox-desc">Description</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-shloka">
+        ॥ Jai Shri Ram ॥
+      </div>
+      <p class="footer-credits">
+        Ramleela - Ruby Park • Crafted &amp; Powered with Devotion by <span class="footer-brand">Base2Ace Technologies</span>
+      </p>
+      <p class="footer-copyright">
+        © Base2Ace Technologies • All Rights and Devotional Blessings Reserved
+      </p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

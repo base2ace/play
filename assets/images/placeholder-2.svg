@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#140a1c" />
+      <stop offset="50%" stop-color="#2d131b" />
+      <stop offset="100%" stop-color="#0e0705" />
+    </linearGradient>
+    <linearGradient id="goldGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffe399" />
+      <stop offset="50%" stop-color="#e2ba49" />
+      <stop offset="100%" stop-color="#a06e18" />
+    </linearGradient>
+    <radialGradient id="waterGlow2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ff7700" stop-opacity="0.3" />
+      <stop offset="70%" stop-color="#3a1c0d" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="800" fill="url(#bgGrad2)" />
+  <circle cx="600" cy="380" r="340" fill="url(#waterGlow2)" />
+
+  <rect x="25" y="25" width="1150" height="750" fill="none" stroke="url(#goldGrad2)" stroke-width="2" rx="16" />
+  <rect x="35" y="35" width="1130" height="730" fill="none" stroke="#d4af37" stroke-opacity="0.3" stroke-width="1" stroke-dasharray="6,4" rx="12" />
+
+  <!-- Saryu River & Diya Motif -->
+  <g transform="translate(600, 310)">
+    <!-- Water Ripple Lines -->
+    <path d="M-200 90 Q-100 70 0 90 T200 90" fill="none" stroke="url(#goldGrad2)" stroke-width="2" opacity="0.4" />
+    <path d="M-240 120 Q-120 100 0 120 T240 120" fill="none" stroke="url(#goldGrad2)" stroke-width="2" opacity="0.3" />
+
+    <!-- Big Sacred Diya in Center -->
+    <!-- Diya Bowl -->
+    <path d="M-90 40 C-90 80 90 80 90 40 C60 50 -60 50 -90 40 Z" fill="#b85918" stroke="url(#goldGrad2)" stroke-width="3" />
+    <!-- Diya Base -->
+    <path d="M-30 75 L30 75 L45 95 L-45 95 Z" fill="#692d09" stroke="url(#goldGrad2)" stroke-width="2" />
+    
+    <!-- Flame Radiance -->
+    <circle cx="0" cy="5" r="45" fill="#ff9900" opacity="0.25" />
+    <!-- Flame Outer -->
+    <path d="M0 -75 Q35 0 0 35 Q-35 0 0 -75 Z" fill="#ff7b00" />
+    <!-- Flame Core -->
+    <path d="M0 -50 Q20 5 0 30 Q-20 5 0 -50 Z" fill="#ffea75" />
+    <circle cx="0" cy="18" r="8" fill="#ffffff" />
+  </g>
+
+  <text x="600" y="470" text-anchor="middle" font-family="'Rozha One', 'Georgia', serif" font-size="36" fill="url(#goldGrad2)" letter-spacing="4">
+    पवित्र सरयू तट • महाआरती
+  </text>
+  <text x="600" y="520" text-anchor="middle" font-family="'Outfit', sans-serif" font-size="20" fill="#f3d4a0" letter-spacing="3" opacity="0.9">
+    HOLY SARYU RIVER &amp; SACRED DIYA AARTI
+  </text>
+
+  <g transform="translate(600, 620)">
+    <rect x="-240" y="-30" width="480" height="60" rx="30" fill="#2d170a" stroke="url(#goldGrad2)" stroke-width="1.5" opacity="0.9" />
+    <text x="0" y="6" text-anchor="middle" font-family="'Outfit', sans-serif" font-size="16" fill="#ffd97d" font-weight="500">
+      📷 Image Placeholder 2 • Replace with assets/images/gallery-2.jpg
+    </text>
+  </g>
+</svg>

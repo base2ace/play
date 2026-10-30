@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#190e03" />
+      <stop offset="50%" stop-color="#3d2208" />
+      <stop offset="100%" stop-color="#0f0702" />
+    </linearGradient>
+    <linearGradient id="goldGrad5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff0aa" />
+      <stop offset="50%" stop-color="#dfb746" />
+      <stop offset="100%" stop-color="#996a1a" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="800" fill="url(#bgGrad5)" />
+  <rect x="25" y="25" width="1150" height="750" fill="none" stroke="url(#goldGrad5)" stroke-width="2" rx="16" />
+  <rect x="35" y="35" width="1130" height="730" fill="none" stroke="#d4af37" stroke-opacity="0.3" stroke-width="1" stroke-dasharray="6,4" rx="12" />
+
+  <!-- Royal Kalash & Crown Emblem -->
+  <g transform="translate(600, 310)">
+    <!-- Royal Arch -->
+    <path d="M-100 120 C-100 -20 100 -20 100 120" fill="none" stroke="url(#goldGrad5)" stroke-width="3" stroke-dasharray="8,6" />
+    <!-- Crown / Mukut -->
+    <path d="M-60 40 L-40 -30 L-10 10 L0 -60 L10 10 L40 -30 L60 40 Z" fill="#b45309" stroke="url(#goldGrad5)" stroke-width="3" />
+    <circle cx="0" cy="-60" r="7" fill="#fef08a" />
+    <circle cx="-40" cy="-30" r="5" fill="#fef08a" />
+    <circle cx="40" cy="-30" r="5" fill="#fef08a" />
+    <circle cx="0" cy="5" r="10" fill="#dc2626" stroke="url(#goldGrad5)" stroke-width="2" />
+    <!-- Kalash Base -->
+    <path d="M-40 40 Q0 60 40 40 L30 80 Q0 90 -30 80 Z" fill="url(#goldGrad5)" />
+  </g>
+
+  <text x="600" y="470" text-anchor="middle" font-family="'Rozha One', 'Georgia', serif" font-size="36" fill="url(#goldGrad5)" letter-spacing="4">
+    भव्य राम दरबार • राज्याभिषेक
+  </text>
+  <text x="600" y="520" text-anchor="middle" font-family="'Outfit', sans-serif" font-size="20" fill="#f3d4a0" letter-spacing="3" opacity="0.9">
+    SRI RAM DARBAR • THE GOLDEN ERA OF RAM RAJYA
+  </text>
+
+  <g transform="translate(600, 620)">
+    <rect x="-240" y="-30" width="480" height="60" rx="30" fill="#2d170a" stroke="url(#goldGrad5)" stroke-width="1.5" opacity="0.9" />
+    <text x="0" y="6" text-anchor="middle" font-family="'Outfit', sans-serif" font-size="16" fill="#ffd97d" font-weight="500">
+      📷 Image Placeholder 5 • Replace with assets/images/gallery-5.jpg
+    </text>
+  </g>
+</svg>

@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e1008" />
+      <stop offset="50%" stop-color="#3d1f0e" />
+      <stop offset="100%" stop-color="#120703" />
+    </linearGradient>
+    <linearGradient id="goldGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffd56b" />
+      <stop offset="50%" stop-color="#d4af37" />
+      <stop offset="100%" stop-color="#996515" />
+    </linearGradient>
+    <radialGradient id="sunGlow1" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#ff9900" stop-opacity="0.35" />
+      <stop offset="60%" stop-color="#d4af37" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+    <pattern id="patternJali1" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M20 0 L40 20 L20 40 L0 20 Z" fill="none" stroke="#d4af37" stroke-opacity="0.08" stroke-width="1"/>
+      <circle cx="20" cy="20" r="3" fill="#d4af37" fill-opacity="0.1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="800" fill="url(#bgGrad1)" />
+  <rect width="1200" height="800" fill="url(#patternJali1)" />
+  <circle cx="600" cy="380" r="320" fill="url(#sunGlow1)" />
+
+  <!-- Ornate Border -->
+  <rect x="25" y="25" width="1150" height="750" fill="none" stroke="url(#goldGrad1)" stroke-width="2" rx="16" />
+  <rect x="35" y="35" width="1130" height="730" fill="none" stroke="#d4af37" stroke-opacity="0.3" stroke-width="1" stroke-dasharray="6,4" rx="12" />
+
+  <!-- Corner Lotus Motifs -->
+  <g fill="url(#goldGrad1)">
+    <!-- Top Left -->
+    <path d="M25 25 Q60 30 70 70 Q30 60 25 25 Z" opacity="0.8"/>
+    <circle cx="48" cy="48" r="4"/>
+    <!-- Top Right -->
+    <path d="M1175 25 Q1140 30 1130 70 Q1170 60 1175 25 Z" opacity="0.8"/>
+    <circle cx="1152" cy="48" r="4"/>
+    <!-- Bottom Left -->
+    <path d="M25 775 Q60 770 70 730 Q30 740 25 775 Z" opacity="0.8"/>
+    <circle cx="48" cy="752" r="4"/>
+    <!-- Bottom Right -->
+    <path d="M1175 775 Q1140 770 1130 730 Q1170 740 1175 775 Z" opacity="0.8"/>
+    <circle cx="1152" cy="752" r="4"/>
+  </g>
+
+  <!-- Temple Shikhara Emblem -->
+  <g transform="translate(600, 310)" text-anchor="middle">
+    <!-- Radiant Sun Rays -->
+    <g stroke="url(#goldGrad1)" stroke-width="2" opacity="0.6">
+      <line x1="0" y1="-170" x2="0" y2="-195" />
+      <line x1="120" y1="-120" x2="140" y2="-140" />
+      <line x1="-120" y1="-120" x2="-140" y2="-140" />
+      <line x1="170" y1="0" x2="195" y2="0" />
+      <line x1="-170" y1="0" x2="-195" y2="0" />
+    </g>
+
+    <!-- Shikhara Silhouette -->
+    <path d="M 0 -150 L 25 -100 L 45 -40 L 70 20 L 90 90 L -90 90 L -70 20 L -45 -40 L -25 -100 Z" fill="#24140b" stroke="url(#goldGrad1)" stroke-width="3" />
+    <!-- Kalash & Flag on top -->
+    <circle cx="0" cy="-160" r="10" fill="url(#goldGrad1)" />
+    <path d="M 0 -170 L 28 -182 L 0 -194 Z" fill="#ff7b00" />
+    <line x1="0" y1="-155" x2="0" y2="-198" stroke="url(#goldGrad1)" stroke-width="2.5" />
+
+    <!-- Temple Arches -->
+    <path d="M -50 90 C -50 40 50 40 50 90 Z" fill="#150a04" stroke="url(#goldGrad1)" stroke-width="2"/>
+    <circle cx="0" cy="55" r="8" fill="url(#goldGrad1)" />
+  </g>
+
+  <!-- Typography -->
+  <text x="600" y="470" text-anchor="middle" font-family="'Rozha One', 'Georgia', serif" font-size="36" fill="url(#goldGrad1)" letter-spacing="4">
+    श्री राम जन्मभूमि • अयोध्या
+  </text>
+  <text x="600" y="520" text-anchor="middle" font-family="'Outfit', sans-serif" font-size="20" fill="#f3d4a0" letter-spacing="3" opacity="0.9">
+    RAM JANMABHOOMI • SACRED CITY OF AYODHYA
+  </text>
+
+  <!-- Instruction Badge -->
+  <g transform="translate(600, 620)">
+    <rect x="-240" y="-30" width="480" height="60" rx="30" fill="#2d170a" stroke="url(#goldGrad1)" stroke-width="1.5" opacity="0.9" />
+    <text x="0" y="6" text-anchor="middle" font-family="'Outfit', sans-serif" font-size="16" fill="#ffd97d" font-weight="500">
+      📷 Image Placeholder 1 • Replace with assets/images/gallery-1.jpg
+    </text>
+  </g>
+</svg>

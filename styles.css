@@ -1,0 +1,1151 @@
+/* ==========================================================================
+   ANCIENT AYODHYA & RAMAYANA ERA THEME
+   Visual Design System: Golden Vedic Temple, Sacred Saffron & Ancient Sandstone
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Outfit:wght@300;400;500;600;700&family=Rozha+One&family=Yatra+One&display=swap');
+
+:root {
+  --font-divine: 'Rozha One', serif;
+  --font-ancient: 'Cinzel Decorative', serif;
+  --font-vedic: 'Yatra One', cursive;
+  --font-body: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Color Palette */
+  --bg-dark: #080503;
+  --bg-deep: #0f0805;
+  --bg-surface: #180d07;
+  --bg-card: rgba(28, 15, 8, 0.85);
+  --bg-card-hover: rgba(42, 22, 12, 0.95);
+
+  --gold-glow: #ffd966;
+  --gold-pure: #f5c044;
+  --gold-deep: #c4942b;
+  --gold-dark: #7a5814;
+  --gold-grad: linear-gradient(135deg, #fff0aa 0%, #f5c044 40%, #c4942b 75%, #8a5e12 100%);
+  --gold-grad-soft: linear-gradient(180deg, rgba(245, 192, 68, 0.15) 0%, rgba(196, 148, 43, 0.05) 100%);
+
+  --saffron-bright: #ff8c00;
+  --saffron-deep: #d85a00;
+  --saffron-grad: linear-gradient(135deg, #ff9900 0%, #e65100 100%);
+
+  --crimson: #9e1a1a;
+  --crimson-glow: #dc2626;
+
+  --text-divine: #fff5e4;
+  --text-primary: #eedbc2;
+  --text-secondary: #bfaa92;
+  --text-muted: #826f58;
+
+  --border-gold: rgba(245, 192, 68, 0.35);
+  --border-gold-bright: rgba(245, 192, 68, 0.75);
+
+  --shadow-gold: 0 10px 30px -10px rgba(245, 192, 68, 0.25);
+  --shadow-divine: 0 0 50px rgba(255, 140, 0, 0.2);
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Base Reset & Document */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background-color: var(--bg-dark);
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-primary);
+  background-color: var(--bg-dark);
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(216, 90, 0, 0.15) 0%, transparent 60%),
+    radial-gradient(circle at 10% 30%, rgba(245, 192, 68, 0.06) 0%, transparent 50%),
+    radial-gradient(circle at 90% 70%, rgba(216, 90, 0, 0.08) 0%, transparent 50%),
+    linear-gradient(rgba(10, 6, 4, 0.98), rgba(8, 5, 3, 0.99));
+  min-height: 100vh;
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Background Canvas for Diya Embers */
+#particles-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Ambient Sacred Glow overlay */
+.ambient-glow {
+  position: fixed;
+  top: -10vw;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80vw;
+  height: 40vw;
+  max-width: 1000px;
+  background: radial-gradient(ellipse at center, rgba(255, 140, 0, 0.12) 0%, rgba(245, 192, 68, 0.04) 50%, transparent 80%);
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* ==========================================================================
+   TOP SHLOKA BANNER (Sacred Vedic Chant)
+   ========================================================================== */
+.sacred-ticker-banner {
+  background: linear-gradient(90deg, #180803 0%, #3a1505 50%, #180803 100%);
+  border-bottom: 1px solid var(--border-gold);
+  padding: 0.6rem 1rem;
+  text-align: center;
+  position: relative;
+  z-index: 20;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.6);
+}
+
+.sacred-ticker-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  font-family: var(--font-vedic);
+  font-size: 1.05rem;
+  color: var(--gold-pure);
+  letter-spacing: 1px;
+  text-shadow: 0 0 10px rgba(245, 192, 68, 0.4);
+}
+
+.sacred-symbol {
+  color: var(--saffron-bright);
+  font-size: 1.25rem;
+  animation: pulseSymbol 2.5s infinite ease-in-out;
+}
+
+@keyframes pulseSymbol {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.2); opacity: 1; filter: drop-shadow(0 0 8px #ff9900); }
+}
+
+/* ==========================================================================
+   SITE HEADER / HERO TITLE
+   ========================================================================== */
+.site-header {
+  padding: 2.5rem 0 1.5rem;
+  text-align: center;
+  position: relative;
+}
+
+.header-ornament-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 0.8rem;
+}
+
+.ornament-line {
+  height: 2px;
+  width: 80px;
+  background: linear-gradient(90deg, transparent, var(--gold-pure), transparent);
+}
+
+.ornament-sun {
+  width: 32px;
+  height: 32px;
+  fill: var(--gold-pure);
+  filter: drop-shadow(0 0 8px rgba(245, 192, 68, 0.6));
+}
+
+.era-badge {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 600;
+  color: #ffb84d;
+  background: rgba(216, 90, 0, 0.15);
+  border: 1px solid rgba(255, 140, 0, 0.4);
+  padding: 0.3rem 1.2rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 0.75rem;
+  box-shadow: inset 0 0 10px rgba(255, 140, 0, 0.15);
+}
+
+.main-title {
+  font-family: var(--font-divine);
+  font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+  line-height: 1.15;
+  margin-bottom: 0.5rem;
+  background: var(--gold-grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 4px 15px rgba(0, 0, 0, 0.8));
+  letter-spacing: 1px;
+}
+
+.main-subtitle {
+  font-family: var(--font-ancient);
+  font-size: clamp(1rem, 2.2vw, 1.4rem);
+  color: var(--text-primary);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+  opacity: 0.95;
+}
+
+.header-description {
+  max-width: 680px;
+  margin: 0 auto 1.5rem;
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.header-quick-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   BUTTONS & CONTROLS (Ancient Ornate Theme)
+   ========================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1.6rem;
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  border: none;
+  outline: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary-gold {
+  background: var(--gold-grad);
+  color: #261103;
+  box-shadow: 0 4px 20px rgba(245, 192, 68, 0.35);
+  border: 1px solid #ffe885;
+}
+
+.btn-primary-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(245, 192, 68, 0.55), 0 0 15px rgba(255, 230, 130, 0.6);
+  filter: brightness(1.06);
+}
+
+.btn-outline-gold {
+  background: rgba(24, 13, 7, 0.7);
+  color: var(--gold-pure);
+  border: 1px solid var(--border-gold);
+  backdrop-filter: blur(8px);
+}
+
+.btn-outline-gold:hover {
+  background: rgba(245, 192, 68, 0.12);
+  border-color: var(--gold-pure);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(245, 192, 68, 0.2);
+}
+
+.btn-icon-only {
+  padding: 0.65rem;
+  border-radius: var(--radius-md);
+  background: rgba(24, 13, 7, 0.8);
+  border: 1px solid var(--border-gold);
+  color: var(--gold-pure);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.btn-icon-only:hover {
+  background: rgba(245, 192, 68, 0.2);
+  border-color: var(--gold-pure);
+  transform: scale(1.08);
+}
+
+/* ==========================================================================
+   VIDEO PAVILION (दिव्य वीडियो मण्डप) - HERO FOCUS
+   ========================================================================== */
+.video-section {
+  padding: 1.5rem 0 3.5rem;
+  position: relative;
+}
+
+.video-pavilion-container {
+  background: var(--bg-surface);
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--border-gold);
+  box-shadow: 
+    0 20px 50px rgba(0, 0, 0, 0.9),
+    0 0 40px rgba(245, 192, 68, 0.15),
+    inset 0 0 30px rgba(0, 0, 0, 0.8);
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-normal);
+}
+
+/* Ancient Carved Arch Border Top */
+.mandap-toran-top {
+  background: linear-gradient(180deg, #2c160a 0%, #1a0c06 100%);
+  border-bottom: 1px solid var(--border-gold);
+  padding: 0.85rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.mandap-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.mandap-badge .live-dot {
+  width: 10px;
+  height: 10px;
+  background-color: #22c55e;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #22c55e;
+  animation: liveBlink 1.8s infinite;
+}
+
+@keyframes liveBlink {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.mandap-title {
+  font-family: var(--font-ancient);
+  font-size: 1.1rem;
+  color: var(--gold-pure);
+  letter-spacing: 2px;
+}
+
+.mandap-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.control-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 0.95rem;
+  border-radius: var(--radius-sm);
+  background: rgba(18, 9, 5, 0.85);
+  border: 1px solid rgba(245, 192, 68, 0.4);
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.control-btn:hover {
+  background: rgba(245, 192, 68, 0.2);
+  border-color: var(--gold-pure);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.control-btn.btn-fullscreen {
+  background: var(--gold-grad);
+  color: #220e03;
+  font-weight: 700;
+  border-color: #ffe685;
+}
+
+.control-btn.btn-fullscreen:hover {
+  box-shadow: 0 0 15px rgba(245, 192, 68, 0.7);
+}
+
+/* Video Stage Area */
+.video-frame-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: #000000;
+  overflow: hidden;
+}
+
+.custom-video-stream {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background-color: #000000;
+  display: block;
+}
+
+/* Big Sacred Play Overlay */
+.video-play-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(35, 18, 9, 0.45) 0%, rgba(10, 5, 2, 0.88) 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  z-index: 10;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+  cursor: pointer;
+}
+
+.video-play-overlay.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.big-sacred-play-btn {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: var(--gold-grad);
+  border: 3px solid #fff5cc;
+  box-shadow: 0 0 35px rgba(245, 192, 68, 0.7), 0 0 60px rgba(255, 120, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  outline: none;
+}
+
+.big-sacred-play-btn svg {
+  width: 42px;
+  height: 42px;
+  fill: #241103;
+  margin-left: 5px;
+}
+
+.big-sacred-play-btn:hover {
+  transform: scale(1.12);
+  box-shadow: 0 0 50px rgba(245, 192, 68, 0.95), 0 0 80px rgba(255, 120, 0, 0.6);
+}
+
+.overlay-stream-text {
+  font-family: var(--font-vedic);
+  font-size: 1.3rem;
+  color: var(--gold-pure);
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.9), 0 0 20px rgba(245, 192, 68, 0.6);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.stream-pulse-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #22c55e;
+  box-shadow: 0 0 12px #22c55e;
+  animation: liveBlink 1.5s infinite;
+}
+
+/* Mandap Footer / Quick Help */
+.mandap-footer {
+  background: #140a05;
+  padding: 0.9rem 1.5rem;
+  border-top: 1px solid rgba(245, 192, 68, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+}
+
+.video-tips {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.kbd-shortcut {
+  display: inline-block;
+  padding: 0.15rem 0.45rem;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(245, 192, 68, 0.3);
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 0.8rem;
+  color: var(--gold-pure);
+}
+
+.direct-drive-link {
+  color: #ffaa33;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: color var(--transition-fast);
+}
+
+.direct-drive-link:hover {
+  color: #ffd966;
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   FULLSCREEN THEATER & CINEMA MODE (HTML5 Fullscreen styling)
+   ========================================================================== */
+.video-pavilion-container:fullscreen,
+.video-pavilion-container:-webkit-full-screen {
+  width: 100vw !important;
+  height: 100vh !important;
+  border-radius: 0 !important;
+  border: none !important;
+  display: flex;
+  flex-direction: column;
+  background: #000000 !important;
+}
+
+.video-pavilion-container:fullscreen .video-frame-wrapper,
+.video-pavilion-container:-webkit-full-screen .video-frame-wrapper {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+}
+
+/* Theater Dim Mode (Active when user clicks "Theater Mode") */
+body.theater-mode-active {
+  background-color: #000000;
+}
+
+body.theater-mode-active .site-header,
+body.theater-mode-active .gallery-section,
+body.theater-mode-active .kanda-section,
+body.theater-mode-active .diya-section,
+body.theater-mode-active .site-footer,
+body.theater-mode-active .sacred-ticker-banner {
+  opacity: 0.15;
+  filter: blur(2px);
+  pointer-events: none;
+  transition: all var(--transition-slow);
+}
+
+body.theater-mode-active .video-pavilion-container {
+  box-shadow: 0 0 100px rgba(0, 0, 0, 1), 0 0 60px rgba(245, 192, 68, 0.4);
+  transform: scale(1.02);
+  z-index: 100;
+}
+
+/* ==========================================================================
+   GALLERY SECTION (अयोध्या छवि दीर्घा) - Beautiful Placeholders & Image Cards
+   ========================================================================== */
+.gallery-section {
+  padding: 3rem 0;
+  position: relative;
+}
+
+.section-head {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.section-tag {
+  display: inline-block;
+  font-family: var(--font-ancient);
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  color: var(--saffron-bright);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.section-title {
+  font-family: var(--font-divine);
+  font-size: clamp(2rem, 4vw, 3rem);
+  background: var(--gold-grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.75rem;
+}
+
+.section-subtitle {
+  max-width: 650px;
+  margin: 0 auto;
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+/* Image Manager Bar (Notice & In-browser replacer helper) */
+.gallery-toolbar {
+  background: rgba(30, 16, 9, 0.7);
+  border: 1px dashed var(--border-gold);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.5rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.toolbar-info {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  color: var(--text-primary);
+  font-size: 0.92rem;
+}
+
+.toolbar-info svg {
+  color: var(--gold-pure);
+  flex-shrink: 0;
+}
+
+.toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* Gallery Grid */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 1.75rem;
+}
+
+.gallery-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-gold);
+  overflow: hidden;
+  transition: all var(--transition-normal);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+.gallery-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--gold-pure);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), 0 0 25px rgba(245, 192, 68, 0.25);
+}
+
+.gallery-card-img-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background-color: #120703;
+  cursor: pointer;
+}
+
+.gallery-card-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+  display: block;
+}
+
+.gallery-card:hover .gallery-card-img-wrapper img {
+  transform: scale(1.05);
+}
+
+/* Image Card Overlay */
+.card-hover-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(14, 7, 3, 0.1) 0%, rgba(14, 7, 3, 0.8) 100%);
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  transition: opacity var(--transition-fast);
+}
+
+.gallery-card-img-wrapper:hover .card-hover-overlay {
+  opacity: 1;
+}
+
+.overlay-btn {
+  padding: 0.6rem 1rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  border: none;
+  background: var(--gold-grad);
+  color: #241103;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  transition: transform var(--transition-fast);
+}
+
+.overlay-btn:hover {
+  transform: scale(1.05);
+}
+
+.overlay-btn.btn-replace {
+  background: rgba(18, 9, 5, 0.9);
+  color: var(--gold-pure);
+  border: 1px solid var(--border-gold);
+}
+
+.gallery-card-body {
+  padding: 1.25rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-devanagari-title {
+  font-family: var(--font-divine);
+  font-size: 1.25rem;
+  color: var(--gold-pure);
+  margin-bottom: 0.25rem;
+  letter-spacing: 0.5px;
+}
+
+.card-english-title {
+  font-family: var(--font-ancient);
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+
+.card-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(245, 192, 68, 0.15);
+  padding-top: 0.75rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.placeholder-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  background: rgba(245, 192, 68, 0.1);
+  color: #ffc955;
+  font-family: monospace;
+  font-size: 0.75rem;
+}
+
+/* ==========================================================================
+   IMAGE REPLACEMENT INSTRUCTION MODAL / ACCORDION
+   ========================================================================== */
+.instruction-guide-card {
+  margin-top: 2.5rem;
+  background: linear-gradient(135deg, rgba(32, 17, 9, 0.9) 0%, rgba(18, 9, 5, 0.95) 100%);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.guide-title {
+  font-family: var(--font-ancient);
+  font-size: 1.15rem;
+  color: var(--gold-pure);
+  letter-spacing: 1px;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.guide-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+
+.step-card {
+  background: rgba(12, 6, 3, 0.6);
+  border: 1px solid rgba(245, 192, 68, 0.2);
+  border-radius: var(--radius-sm);
+  padding: 1rem;
+}
+
+.step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  background: var(--gold-pure);
+  color: #210d02;
+  font-weight: 700;
+  border-radius: 50%;
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+}
+
+.step-card h4 {
+  font-size: 0.95rem;
+  color: var(--text-divine);
+  margin-bottom: 0.35rem;
+}
+
+.step-card p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+
+.step-card code {
+  color: #ffbe44;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 0.15rem 0.35rem;
+  border-radius: 3px;
+  font-size: 0.8rem;
+}
+
+/* ==========================================================================
+   RAMAYANA CHRONICLES SECTION (रामायण कांड)
+   ========================================================================== */
+.kanda-section {
+  padding: 3rem 0;
+  position: relative;
+}
+
+.kanda-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 1rem;
+}
+
+.kanda-card {
+  background: rgba(22, 11, 6, 0.7);
+  border: 1px solid rgba(245, 192, 68, 0.2);
+  border-radius: var(--radius-md);
+  padding: 1.2rem 1rem;
+  text-align: center;
+  transition: all var(--transition-fast);
+}
+
+.kanda-card:hover {
+  background: rgba(35, 18, 10, 0.95);
+  border-color: var(--gold-pure);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+.kanda-num {
+  font-size: 0.75rem;
+  font-family: var(--font-ancient);
+  color: var(--saffron-bright);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+
+.kanda-name-hi {
+  font-family: var(--font-divine);
+  font-size: 1.3rem;
+  color: var(--gold-pure);
+  margin-bottom: 0.2rem;
+}
+
+.kanda-name-en {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+
+/* ==========================================================================
+   INTERACTIVE DIYA LIGHTING SECTION (दीप प्रज्ज्वलन)
+   ========================================================================== */
+.diya-section {
+  padding: 3.5rem 0;
+  text-align: center;
+}
+
+.diya-box {
+  background: radial-gradient(circle at center, rgba(38, 19, 10, 0.95) 0%, rgba(16, 8, 4, 0.95) 100%);
+  border: 2px solid var(--border-gold);
+  border-radius: var(--radius-lg);
+  padding: 3rem 2rem;
+  max-width: 760px;
+  margin: 0 auto;
+  position: relative;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8), 0 0 30px rgba(255, 140, 0, 0.15);
+}
+
+.big-interactive-diya {
+  cursor: pointer;
+  display: inline-block;
+  margin: 1.5rem 0;
+  transition: transform var(--transition-normal);
+  filter: drop-shadow(0 0 20px rgba(255, 140, 0, 0.5));
+}
+
+.big-interactive-diya:hover {
+  transform: scale(1.08);
+}
+
+.diya-counter {
+  font-family: var(--font-vedic);
+  font-size: 2.2rem;
+  color: var(--gold-pure);
+  text-shadow: 0 0 15px rgba(245, 192, 68, 0.6);
+  margin-bottom: 0.5rem;
+}
+
+.diya-note {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+/* ==========================================================================
+   LIGHTBOX MODAL (Full Resolution Image Viewer)
+   ========================================================================== */
+.lightbox-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(6, 3, 2, 0.94);
+  backdrop-filter: blur(12px);
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+.lightbox-modal.active {
+  display: flex;
+  opacity: 1;
+}
+
+.lightbox-content {
+  position: relative;
+  max-width: 1000px;
+  width: 100%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lightbox-img-wrapper {
+  position: relative;
+  max-height: 75vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.lightbox-img-wrapper img {
+  max-height: 75vh;
+  max-width: 100%;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--border-gold);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9);
+  object-fit: contain;
+}
+
+.lightbox-caption {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.lightbox-caption h3 {
+  font-family: var(--font-divine);
+  font-size: 1.5rem;
+  color: var(--gold-pure);
+  margin-bottom: 0.25rem;
+}
+
+.lightbox-caption p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.lightbox-close-btn {
+  position: absolute;
+  top: -45px;
+  right: 0;
+  background: none;
+  border: none;
+  color: var(--gold-pure);
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: transform var(--transition-fast);
+}
+
+.lightbox-close-btn:hover {
+  transform: scale(1.2);
+}
+
+.lightbox-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(26, 13, 7, 0.85);
+  border: 1px solid var(--border-gold);
+  color: var(--gold-pure);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.lightbox-nav-btn:hover {
+  background: var(--gold-pure);
+  color: #1a0c06;
+}
+
+.lightbox-prev { left: -60px; }
+.lightbox-next { right: -60px; }
+
+/* ==========================================================================
+   SITE FOOTER
+   ========================================================================== */
+.site-footer {
+  border-top: 2px solid var(--border-gold);
+  background: linear-gradient(180deg, #120703 0%, #080302 100%);
+  padding: 3.5rem 0 2.5rem;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.footer-shloka {
+  font-family: var(--font-vedic);
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: var(--gold-pure);
+  letter-spacing: 2px;
+  margin-bottom: 0.9rem;
+  text-shadow: 0 0 16px rgba(245, 192, 68, 0.6), 0 0 35px rgba(255, 140, 0, 0.35);
+}
+
+.footer-credits {
+  font-size: 0.98rem;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.5px;
+}
+
+.footer-brand {
+  color: var(--gold-pure);
+  font-weight: 600;
+  text-shadow: 0 0 8px rgba(245, 192, 68, 0.4);
+}
+
+.footer-copyright {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+/* Hidden file input for client-side image replacer */
+#universal-file-input {
+  display: none;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (Tablets & Mobile)
+   ========================================================================== */
+@media (max-width: 900px) {
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+  .lightbox-prev { left: 10px; }
+  .lightbox-next { right: 10px; }
+}
+
+@media (max-width: 600px) {
+  .sacred-ticker-content {
+    font-size: 0.88rem;
+  }
+  .mandap-toran-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .mandap-controls {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .control-btn {
+    flex: 1;
+    justify-content: center;
+  }
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+  .kanda-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .gallery-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

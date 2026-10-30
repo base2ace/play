@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad6" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#190e0c" />
+      <stop offset="50%" stop-color="#361715" />
+      <stop offset="100%" stop-color="#100606" />
+    </linearGradient>
+    <linearGradient id="goldGrad6" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffe699" />
+      <stop offset="50%" stop-color="#d4af37" />
+      <stop offset="100%" stop-color="#8c5810" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="800" fill="url(#bgGrad6)" />
+  <rect x="25" y="25" width="1150" height="750" fill="none" stroke="url(#goldGrad6)" stroke-width="2" rx="16" />
+  <rect x="35" y="35" width="1130" height="730" fill="none" stroke="#d4af37" stroke-opacity="0.3" stroke-width="1" stroke-dasharray="6,4" rx="12" />
+
+  <!-- Traditional Theatrical Stage Motif -->
+  <g transform="translate(600, 310)">
+    <!-- Stage Arch -->
+    <path d="M-120 100 Q-120 -80 0 -80 Q120 -80 120 100" fill="none" stroke="url(#goldGrad6)" stroke-width="3" />
+    <!-- Curtain Drapes -->
+    <path d="M-120 -50 C-80 0 -90 60 -120 100" stroke="url(#goldGrad6)" stroke-width="2" fill="none"/>
+    <path d="M120 -50 C80 0 90 60 120 100" stroke="url(#goldGrad6)" stroke-width="2" fill="none"/>
+    
+    <!-- Classical Shankh / Conch Shell Emblem -->
+    <path d="M-25 -20 C-40 -40 -10 -60 20 -40 C50 -20 30 20 0 40 C-30 60 -50 30 -25 -20 Z" fill="#9a3412" stroke="url(#goldGrad6)" stroke-width="3" />
+    <!-- Conch lines -->
+    <path d="M-5 -25 Q15 -35 15 -10" fill="none" stroke="url(#goldGrad6)" stroke-width="2"/>
+    <path d="M-12 -5 Q10 -15 10 15" fill="none" stroke="url(#goldGrad6)" stroke-width="2"/>
+  </g>
+
+  <text x="600" y="470" text-anchor="middle" font-family="'Rozha One', 'Georgia', serif" font-size="36" fill="url(#goldGrad6)" letter-spacing="4">
+    श्री रामलीला महोत्सव मंचन
+  </text>
+  <text x="600" y="520" text-anchor="middle" font-family="'Outfit', sans-serif" font-size="20" fill="#f3d4a0" letter-spacing="3" opacity="0.9">
+    SRI RAMLEELA NATAK • DRAMATIC HERITAGE
+  </text>
+
+  <g transform="translate(600, 620)">
+    <rect x="-240" y="-30" width="480" height="60" rx="30" fill="#2d170a" stroke="url(#goldGrad6)" stroke-width="1.5" opacity="0.9" />
+    <text x="0" y="6" text-anchor="middle" font-family="'Outfit', sans-serif" font-size="16" fill="#ffd97d" font-weight="500">
+      📷 Image Placeholder 6 • Replace with assets/images/gallery-6.jpg
+    </text>
+  </g>
+</svg>
