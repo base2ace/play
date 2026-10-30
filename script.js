@@ -24,27 +24,30 @@ function initVideoStreamPlayer() {
 
   if (!video || !pavilion) return;
 
-  // Big Play Overlay Handler
-  if (overlay) {
-    overlay.addEventListener('click', () => {
-      video.play().then(() => {
-        overlay.classList.add('hidden');
-      }).catch((err) => {
-        console.log('Playback error/autoplay policy:', err);
+  // Video element events (only if HTML5 video tag)
+  const isHtml5Video = video.tagName === 'VIDEO';
+
+  if (isHtml5Video) {
+    if (overlay) {
+      overlay.addEventListener('click', () => {
+        video.play().then(() => {
+          overlay.classList.add('hidden');
+        }).catch((err) => {
+          console.log('Playback error/autoplay policy:', err);
+        });
       });
+    }
+
+    video.addEventListener('play', () => {
+      overlay && overlay.classList.add('hidden');
+    });
+
+    video.addEventListener('pause', () => {
+      if (video.currentTime < 1) {
+        overlay && overlay.classList.remove('hidden');
+      }
     });
   }
-
-  video.addEventListener('play', () => {
-    overlay && overlay.classList.add('hidden');
-  });
-
-  video.addEventListener('pause', () => {
-    // Only show overlay if stopped near beginning
-    if (video.currentTime < 1) {
-      overlay && overlay.classList.remove('hidden');
-    }
-  });
 
   // Toggle Fullscreen API
   async function toggleFullscreen() {
@@ -120,8 +123,7 @@ function initVideoStreamPlayer() {
     } else if (e.key === 't' || e.key === 'T') {
       e.preventDefault();
       btnTheater && btnTheater.click();
-    } else if (e.key === ' ' && document.activeElement !== video) {
-      // Toggle play/pause
+    } else if (e.key === ' ' && isHtml5Video && document.activeElement !== video) {
       e.preventDefault();
       if (video.paused) {
         video.play();

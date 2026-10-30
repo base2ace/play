@@ -110,27 +110,15 @@
 
           <!-- Video Frame Wrapper -->
           <div class="video-frame-wrapper" id="video-frame-wrapper">
-            <!-- HTML5 Range Streaming Video Player -->
-            <video 
+            <!-- Google Drive Embedded HD Stream Player -->
+            <iframe 
               id="main-video-player"
               class="custom-video-stream"
-              controls 
-              preload="metadata" 
-              playsinline
-              poster="assets/images/sample-ayodhya-temple.jpg">
-              <source src="/api/stream-video" type="video/mp4">
-              <source src="https://drive.usercontent.google.com/download?id=1qKjs42FHvkA9tz_5JhZXn9I7L70uWm-K&export=download&confirm=t" type="video/mp4">
-              Your browser does not support HTML5 video streaming.
-            </video>
-
-            <!-- Big Sacred Play Overlay -->
-            <div class="video-play-overlay" id="video-play-overlay">
-              <button class="big-sacred-play-btn" id="big-play-btn" aria-label="Play Streaming Video">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M8 5v14l11-7z"/>
-                </svg>
-              </button>
-            </div>
+              src="https://drive.google.com/file/d/1qKjs42FHvkA9tz_5JhZXn9I7L70uWm-K/preview" 
+              title="Ramleela - Ruby Park Stream"
+              allow="autoplay; fullscreen" 
+              allowfullscreen>
+            </iframe>
           </div>
 
           <!-- Pavilion Footer & Hotkeys -->

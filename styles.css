@@ -415,6 +415,7 @@ body {
 .custom-video-stream {
   width: 100%;
   height: 100%;
+  border: none;
   object-fit: contain;
   background-color: #000000;
   display: block;
