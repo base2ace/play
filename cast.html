@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cast &amp; Characters - Coming Soon | Ramleela - Ruby Park</title>
+  <meta name="description" content="Discover the divine cast and characters of Ramleela - Ruby Park. Coming soon with artist profiles, character roles, and theatrical enactments.">
+  
+  <!-- Google Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Outfit:wght@300;400;500;600;700&family=Rozha+One&family=Yatra+One&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🪔</text></svg>">
+</head>
+<body class="cast-page-body">
+
+  <!-- Floating Sacred Canvas for Diya Embers & Sparkles -->
+  <canvas id="particles-canvas"></canvas>
+  <div class="ambient-glow"></div>
+
+  <!-- Auspicious Vedic Top Ticker -->
+  <div class="sacred-ticker-banner">
+    <div class="sacred-ticker-content">
+      <span class="sacred-symbol">ॐ</span>
+      <span>मंगल भवन अमंगल हारी • द्रवहु सुदसरथ अजिर बिहारी</span>
+      <span class="sacred-symbol">🪔</span>
+      <span>रघुकुल रीत सदा चलि आई • प्रान जाहुँ बरु बचनु न जाई</span>
+      <span class="sacred-symbol">ॐ</span>
+    </div>
+  </div>
+
+  <!-- Main Site Header -->
+  <header class="site-header" id="site-header">
+    <div class="container">
+      <div class="header-ornament-top">
+        <span class="ornament-line"></span>
+        <svg class="ornament-sun" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="5" />
+          <path d="M12 1v3M12 20v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M1 12h3M20 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span class="ornament-line"></span>
+      </div>
+
+      <div class="era-badge">॥ श्री रामलीला कलाकार मण्डली ॥</div>
+      <h1 class="main-title">Cast &amp; Characters</h1>
+      <h2 class="main-subtitle">A TIMELESS EVENT • RUBY PARK</h2>
+
+      <p class="header-description">
+        Witness the dedicated artists and devotees preparing to portray the divine characters of the Ramayana in the grand celebration of Ramleela - Ruby Park.
+      </p>
+
+      <div class="header-quick-actions">
+        <a href="index.html" class="btn btn-primary-gold" id="btn-hero-watch" title="Back to Video Stream">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+          Back to Watch Video
+        </a>
+        <a href="#character-grid" class="btn btn-outline-gold" id="btn-hero-characters">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+          Character Lineup
+        </a>
+        <button class="btn btn-outline-gold" id="btn-temple-bell" title="Play Temple Bell Chime">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+            <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+          </svg>
+          Temple Bell Chime
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Area -->
+  <main class="cast-page-section">
+    <div class="container">
+
+      <!-- Coming Soon Status Callout -->
+      <div class="cast-status-callout">
+        <div class="cast-status-info">
+          <div class="cast-status-icon">🪔</div>
+          <div class="cast-status-text">
+            <h3>COMING SOON • अति शीघ्र दर्शन</h3>
+            <p>The official cast roster, character assignments, and actor profiles are being curated. Sneak peek below!</p>
+          </div>
+        </div>
+        <div class="cast-status-actions">
+          <a href="#notify-section" class="btn btn-primary-gold" id="btn-status-notify">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+            </svg>
+            Notify Me
+          </a>
+          <button class="control-btn" id="btn-share-cast" title="Share Cast Page">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="18" cy="5" r="3"/>
+              <circle cx="6" cy="12" r="3"/>
+              <circle cx="18" cy="19" r="3"/>
+              <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+              <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+            </svg>
+            Share Page
+          </button>
+        </div>
+      </div>
+
+      <!-- Grand Cast Teaser Mandap Showcase -->
+      <section class="cast-showcase-container">
+        <!-- Mandap Carved Arch Border Top -->
+        <div class="cast-showcase-header">
+          <div class="cast-stage-title-wrap">
+            <span class="live-dot"></span>
+            <span class="cast-stage-badge">DIVINE DRAMATIC ENSEMBLE • देव स्वरूप</span>
+          </div>
+          <div class="mandap-badge">
+            <span class="badge-sparkle">✨</span>
+            <span class="mandap-title">ROLES IN REHEARSAL</span>
+          </div>
+        </div>
+
+        <!-- Banner Frame with Generated Artwork -->
+        <div class="cast-banner-frame">
+          <img 
+            src="assets/images/ramleela-cast-teaser.jpg" 
+            alt="Ramleela - Ruby Park Divine Cast Presentation" 
+            class="cast-hero-image"
+            id="cast-hero-img"
+            loading="eager"
+          >
+          <div class="cast-banner-overlay">
+            <div class="cast-banner-content">
+              <span class="cast-banner-tag">॥ श्री राम जानकी बैठे हैं मेरे सीने में ॥</span>
+              <h2 class="cast-banner-heading">The Timeless Enactment of Ramleela</h2>
+              <p class="cast-banner-desc">
+                Bringing ancient Ayodhya’s eternal story of Dharma, filial duty, and supreme devotion to the stage of Ruby Park. Stay tuned as we introduce the gifted cast members who breathe life into every sacred dialogue.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section Title for Characters -->
+      <div class="section-head" id="character-grid">
+        <span class="section-tag">DRAMATIS PERSONAE</span>
+        <h2 class="section-title">Character Lineup</h2>
+        <p class="section-subtitle">
+          The sacred personas of the Ramayana being brought to life on stage
+        </p>
+      </div>
+
+      <!-- Character Teaser Cards Grid -->
+      <div class="character-grid">
+
+        <!-- Character 1: Sri Rama -->
+        <article class="character-card">
+          <div>
+            <div class="character-card-head">
+              <div class="character-icon-medallion" title="Kodanda Bow &amp; Divine Sun">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <!-- Bow and Arrow -->
+                  <path d="M12 2a10 10 0 0 1 0 20"/>
+                  <line x1="12" y1="2" x2="12" y2="22"/>
+                  <line x1="2" y1="12" x2="22" y2="12"/>
+                  <polyline points="18 8 22 12 18 16"/>
+                </svg>
+              </div>
+              <span class="character-badge-revealing">
+                <span class="badge-sparkle">✨</span>
+                Revealing Soon
+              </span>
+            </div>
+
+            <h3 class="character-devanagari-title">भगवान श्री राम</h3>
+            <h4 class="character-english-name">Maryada Purushottam Lord Rama</h4>
+            <div class="character-role">Avatar of Dharma &bull; Seventh Incarnation of Vishnu</div>
+
+            <p class="character-desc">
+              The righteous scion of the Raghu clan, embodying supreme moral virtue, noble kingship, and compassionate defender of righteousness against all adharma.
+            </p>
+          </div>
+
+          <div class="character-footer">
+            <span>Actor Announcement</span>
+            <span>Coming Soon</span>
+          </div>
+        </article>
+
+        <!-- Character 2: Mata Sita -->
+        <article class="character-card">
+          <div>
+            <div class="character-card-head">
+              <div class="character-icon-medallion" title="Divine Lotus &amp; Royal Diadem">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <!-- Lotus icon -->
+                  <path d="M12 3c-1.5 3-4 6-4 9a4 4 0 0 0 8 0c0-3-2.5-6-4-9z"/>
+                  <path d="M12 12c-3-1-6.5 0-7.5 3 2.5 1 5.5.5 7.5-3z"/>
+                  <path d="M12 12c3-1 6.5 0 7.5 3-2.5 1-5.5.5-7.5-3z"/>
+                  <path d="M8 21h8"/>
+                </svg>
+              </div>
+              <span class="character-badge-revealing">
+                <span class="badge-sparkle">✨</span>
+                Revealing Soon
+              </span>
+            </div>
+
+            <h3 class="character-devanagari-title">माता जानकी (सीता)</h3>
+            <h4 class="character-english-name">Mata Sita</h4>
+            <div class="character-role">Epitome of Grace, Devotion &bull; Daughter of Earth</div>
+
+            <p class="character-desc">
+              Princess of Mithila and divine consort of Sri Rama, standing as an eternal beacon of purity, unwavering courage, moral fortitude, and gentle dignity.
+            </p>
+          </div>
+
+          <div class="character-footer">
+            <span>Actor Announcement</span>
+            <span>Coming Soon</span>
+          </div>
+        </article>
+
+        <!-- Character 3: Veer Lakshmana -->
+        <article class="character-card">
+          <div>
+            <div class="character-card-head">
+              <div class="character-icon-medallion" title="Radiant Quiver &amp; Arrows">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <!-- Twin arrows / valour -->
+                  <line x1="5" y1="19" x2="19" y2="5"/>
+                  <polyline points="10 5 19 5 19 14"/>
+                  <line x1="2" y1="12" x2="12" y2="2"/>
+                  <polyline points="7 2 12 2 12 7"/>
+                </svg>
+              </div>
+              <span class="character-badge-revealing">
+                <span class="badge-sparkle">✨</span>
+                Revealing Soon
+              </span>
+            </div>
+
+            <h3 class="character-devanagari-title">वीर लक्ष्मण</h3>
+            <h4 class="character-english-name">Prince Lakshmana</h4>
+            <div class="character-role">Guardian of Truth &bull; Indomitable Valour</div>
+
+            <p class="character-desc">
+              The lion-hearted younger brother who renounced royal comforts to vigilantly safeguard Sri Rama and Mata Sita through fourteen years in Dandakaranya.
+            </p>
+          </div>
+
+          <div class="character-footer">
+            <span>Actor Announcement</span>
+            <span>Coming Soon</span>
+          </div>
+        </article>
+
+        <!-- Character 4: Sankat Mochan Hanuman -->
+        <article class="character-card">
+          <div>
+            <div class="character-card-head">
+              <div class="character-icon-medallion" title="Gada (Sacred Mace)">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <!-- Gada mace -->
+                  <line x1="6" y1="18" x2="15" y2="9"/>
+                  <circle cx="17.5" cy="6.5" r="3.5"/>
+                  <path d="M4 20l2-2"/>
+                  <path d="M19 5l1.5-1.5"/>
+                </svg>
+              </div>
+              <span class="character-badge-revealing">
+                <span class="badge-sparkle">✨</span>
+                Revealing Soon
+              </span>
+            </div>
+
+            <h3 class="character-devanagari-title">पवनपुत्र श्री हनुमान</h3>
+            <h4 class="character-english-name">Sankat Mochan Hanuman</h4>
+            <div class="character-role">Supreme Devotee &bull; Embodiment of Strength &amp; Wisdom</div>
+
+            <p class="character-desc">
+              The peerless servant of Lord Rama whose boundless devotion, immense strength, and humility eradicated every obstacle in the sacred quest for righteousness.
+            </p>
+          </div>
+
+          <div class="character-footer">
+            <span>Actor Announcement</span>
+            <span>Coming Soon</span>
+          </div>
+        </article>
+
+        <!-- Character 5: Lankapati Ravana -->
+        <article class="character-card">
+          <div>
+            <div class="character-card-head">
+              <div class="character-icon-medallion" title="Crown &amp; Ten Heads of Power">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <!-- Crown -->
+                  <path d="M2 4l3 12h14l3-12-5 4-5-6-5 6-5-4z"/>
+                  <circle cx="12" cy="18" r="1"/>
+                  <circle cx="6" cy="18" r="1"/>
+                  <circle cx="18" cy="18" r="1"/>
+                </svg>
+              </div>
+              <span class="character-badge-revealing">
+                <span class="badge-sparkle">✨</span>
+                Revealing Soon
+              </span>
+            </div>
+
+            <h3 class="character-devanagari-title">दशानन रावण</h3>
+            <h4 class="character-english-name">Lankapati Ravana</h4>
+            <div class="character-role">Mighty Scholar &amp; Monarch &bull; The Tragic Adversary</div>
+
+            <p class="character-desc">
+              The master of the Vedas and formidable king of golden Lanka whose tragic pride led to his downfall, exemplifying the eternal triumph of Dharma over Ego.
+            </p>
+          </div>
+
+          <div class="character-footer">
+            <span>Actor Announcement</span>
+            <span>Coming Soon</span>
+          </div>
+        </article>
+
+        <!-- Character 6: Maharaja Dasharatha & Ayodhya Darbar -->
+        <article class="character-card">
+          <div>
+            <div class="character-card-head">
+              <div class="character-icon-medallion" title="Ayodhya Throne &amp; Sages">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <!-- Throne / Palace arch -->
+                  <path d="M3 21h18"/>
+                  <path d="M5 21V9a7 7 0 0 1 14 0v12"/>
+                  <path d="M9 21v-6a3 3 0 0 1 6 0v6"/>
+                  <circle cx="12" cy="5" r="1.5"/>
+                </svg>
+              </div>
+              <span class="character-badge-revealing">
+                <span class="badge-sparkle">✨</span>
+                Revealing Soon
+              </span>
+            </div>
+
+            <h3 class="character-devanagari-title">अयोध्या राजदरबार</h3>
+            <h4 class="character-english-name">Maharaja Dasharatha &amp; Ayodhya Darbar</h4>
+            <div class="character-role">Royal Lineage &bull; Vashistha, Bharata &amp; Shatrughna</div>
+
+            <p class="character-desc">
+              The venerable king of Ayodhya whose sworn word proved dearer than life itself, surrounded by the devoted royal court, wise sages, and loving brothers.
+            </p>
+          </div>
+
+          <div class="character-footer">
+            <span>Actor Announcement</span>
+            <span>Coming Soon</span>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Stay Tuned & Notify Card -->
+      <section class="cast-notify-section" id="notify-section">
+        <div class="coming-soon-pill">
+          <span class="badge-sparkle">🪔</span>
+          CAST REVEAL NOTIFICATION
+        </div>
+        <h3 class="notify-title">Be The First To Meet The Cast</h3>
+        <p class="notify-desc">
+          Enter your email to receive an auspicious alert as soon as the full actor profiles, rehearsal photographs, and schedule are released.
+        </p>
+
+        <form class="notify-form" id="cast-notify-form">
+          <input 
+            type="email" 
+            class="notify-input" 
+            id="notify-email" 
+            placeholder="Enter your email address..." 
+            required
+            aria-label="Email address for notification"
+          >
+          <button type="submit" class="btn btn-primary-gold" id="btn-submit-notify">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="22" y1="2" x2="11" y2="13"/>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+            </svg>
+            Notify Me
+          </button>
+        </form>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-shloka">
+        ॥ Jai Shri Ram ॥
+      </div>
+      <div class="footer-links">
+        <a href="index.html" class="footer-link">Watch Video</a>
+        <span class="footer-link-divider">•</span>
+        <a href="cast.html" class="footer-link active">Cast &amp; Characters (Coming Soon)</a>
+      </div>
+      <p class="footer-credits">
+        Ramleela - Ruby Park • Crafted &amp; Powered with Devotion by <span class="footer-brand">Base2Ace Technologies</span>
+      </p>
+      <p class="footer-copyright">
+        © Base2Ace Technologies • All Rights and Devotional Blessings Reserved
+      </p>
+    </div>
+  </footer>
+
+  <!-- Toast Feedback Popup -->
+  <div class="toast-feedback" id="toast-feedback" role="alert" aria-live="assertive">
+    <span class="toast-icon">🙏</span>
+    <span class="toast-text" id="toast-message">Dhanyawad! You will be notified when the cast is announced.</span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
