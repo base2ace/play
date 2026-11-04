@@ -403,6 +403,112 @@ body {
   box-shadow: 0 0 15px rgba(245, 192, 68, 0.7);
 }
 
+/* Devotional Video Like Button */
+.control-btn.btn-like {
+  position: relative;
+  background: rgba(30, 13, 7, 0.9);
+  border: 1px solid rgba(245, 192, 68, 0.45);
+  color: var(--text-primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.48rem 0.9rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  user-select: none;
+}
+
+.control-btn.btn-like:hover {
+  background: rgba(50, 18, 10, 0.95);
+  border-color: rgba(255, 107, 107, 0.65);
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 18px rgba(255, 75, 75, 0.25);
+}
+
+.control-btn.btn-like .like-heart-icon {
+  width: 17px;
+  height: 17px;
+  stroke: #ff7675;
+  fill: transparent;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), fill 0.3s ease, stroke 0.3s ease;
+  flex-shrink: 0;
+}
+
+.control-btn.btn-like:hover .like-heart-icon {
+  transform: scale(1.18);
+  stroke: #ff4757;
+}
+
+.control-btn.btn-like.liked {
+  background: linear-gradient(135deg, rgba(74, 18, 12, 0.95) 0%, rgba(42, 12, 8, 0.95) 100%);
+  border-color: rgba(255, 99, 72, 0.85);
+  color: #ffe8e8;
+  box-shadow: 0 0 16px rgba(255, 71, 87, 0.35);
+}
+
+.control-btn.btn-like.liked .like-heart-icon {
+  fill: #ff4757;
+  stroke: #ff6b81;
+  transform: scale(1.12);
+  filter: drop-shadow(0 0 6px rgba(255, 71, 87, 0.6));
+}
+
+.control-btn.btn-like.liked.animate-pop .like-heart-icon {
+  animation: heartPop 0.55s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes heartPop {
+  0% { transform: scale(1); }
+  35% { transform: scale(1.45) rotate(-12deg); }
+  70% { transform: scale(0.92) rotate(6deg); }
+  100% { transform: scale(1.12) rotate(0deg); }
+}
+
+.like-count-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(245, 192, 68, 0.15);
+  border: 1px solid rgba(245, 192, 68, 0.35);
+  color: var(--gold-pure);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.82rem;
+  padding: 0.12rem 0.5rem;
+  border-radius: 999px;
+  min-width: 38px;
+  letter-spacing: 0.5px;
+  transition: all var(--transition-fast);
+}
+
+.control-btn.btn-like.liked .like-count-badge {
+  background: rgba(255, 71, 87, 0.22);
+  border-color: rgba(255, 71, 87, 0.55);
+  color: #ffcccc;
+  box-shadow: 0 0 8px rgba(255, 71, 87, 0.3);
+}
+
+/* Floating +1 particle animation */
+.like-particle-plus-one {
+  position: absolute;
+  top: -8px;
+  right: 12px;
+  color: #ff6b81;
+  font-weight: 800;
+  font-size: 0.82rem;
+  pointer-events: none;
+  animation: floatUpFade 0.85s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  z-index: 20;
+}
+
+@keyframes floatUpFade {
+  0% { opacity: 1; transform: translateY(0) scale(1); }
+  50% { opacity: 0.95; transform: translateY(-16px) scale(1.25); }
+  100% { opacity: 0; transform: translateY(-28px) scale(0.8); }
+}
+
 /* Video Stage Area */
 .video-frame-wrapper {
   position: relative;
@@ -672,6 +778,36 @@ body {
 .direct-drive-link:hover {
   color: #ffd966;
   text-decoration: underline;
+}
+
+/* Devotional Stats in Mandap Footer */
+.video-devotional-stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  background: rgba(245, 192, 68, 0.08);
+  border: 1px solid rgba(245, 192, 68, 0.25);
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-full);
+}
+
+.video-devotional-stat .stat-heart {
+  font-size: 0.95rem;
+  filter: drop-shadow(0 0 4px rgba(255, 75, 75, 0.6));
+  animation: heartSubtleBeat 2.4s infinite ease-in-out;
+}
+
+@keyframes heartSubtleBeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+.video-devotional-stat strong {
+  color: var(--gold-pure);
+  font-weight: 700;
+  letter-spacing: 0.5px;
 }
 
 /* ==========================================================================

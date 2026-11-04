@@ -10,6 +10,7 @@ import urllib.request
 import os
 import re
 import mimetypes
+import json
 
 PORT = 8899
 LOCAL_VIDEO_PATH = r"C:\MyWork\Antigravity\local-network-transfer\uploads\FinalRamleela_DoNotChange.mov"
@@ -35,10 +36,70 @@ class StreamingHandler(http.server.SimpleHTTPRequestHandler):
             super().do_HEAD()
 
     def do_GET(self):
-        if self.path.startswith('/api/stream-video'):
+        if self.path.startswith('/api/likes'):
+            self.handle_get_likes()
+        elif self.path.startswith('/api/stream-video'):
             self.stream_video(is_head=False)
         else:
             super().do_GET()
+
+    def do_POST(self):
+        if self.path.startswith('/api/likes'):
+            self.handle_post_likes()
+        else:
+            self.send_error(404, "Endpoint not found")
+
+    def get_likes_file_path(self):
+        return os.path.join(os.path.dirname(__file__), 'likes.json')
+
+    def read_likes(self):
+        path = self.get_likes_file_path()
+        if os.path.exists(path):
+            try:
+                with open(path, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+                    return int(data.get('likes', 1080))
+            except Exception:
+                pass
+        return 1080
+
+    def write_likes(self, count):
+        path = self.get_likes_file_path()
+        try:
+            with open(path, 'w', encoding='utf-8') as f:
+                json.dump({'likes': count}, f)
+        except Exception:
+            pass
+
+    def handle_get_likes(self):
+        likes = self.read_likes()
+        resp = json.dumps({'likes': likes}).encode('utf-8')
+        self.send_response(200)
+        self.send_header('Content-Type', 'application/json')
+        self.send_header('Content-Length', str(len(resp)))
+        self.end_headers()
+        self.wfile.write(resp)
+
+    def handle_post_likes(self):
+        try:
+            length = int(self.headers.get('Content-Length', 0))
+            body = self.rfile.read(length) if length > 0 else b'{}'
+            data = json.loads(body.decode('utf-8'))
+            action = data.get('action', 'like')
+            current = self.read_likes()
+            if action == 'like':
+                current += 1
+            elif action == 'unlike' and current > 1080:
+                current -= 1
+            self.write_likes(current)
+            resp = json.dumps({'likes': current, 'success': True}).encode('utf-8')
+            self.send_response(200)
+            self.send_header('Content-Type', 'application/json')
+            self.send_header('Content-Length', str(len(resp)))
+            self.end_headers()
+            self.wfile.write(resp)
+        except Exception as e:
+            self.send_error(500, str(e))
 
     def stream_video(self, is_head=False):
         # 1. Prefer local video file if available for ultra-fast local testing

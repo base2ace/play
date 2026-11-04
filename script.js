@@ -6,6 +6,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   initDiyaCanvas();
   initVideoStreamPlayer();
+  initVideoLikeSystem();
   initGallerySystem();
   initLightbox();
   initTempleBell();
@@ -205,6 +206,124 @@ function initVideoStreamPlayer() {
         }
       }
     }
+  });
+}
+
+/* ==========================================================================
+   1.5 DEVOTIONAL VIDEO LIKE SYSTEM & COUNTER
+   ========================================================================== */
+function initVideoLikeSystem() {
+  const btnLike = document.getElementById('btn-like-video');
+  const countBadge = document.getElementById('video-like-count');
+  const footerCounter = document.getElementById('stat-like-counter');
+
+  if (!btnLike || !countBadge) return;
+
+  const BASE_LIKES = 1080;
+  let currentLikes = BASE_LIKES;
+  let isLiked = false;
+
+  // 1. Restore previous state from localStorage
+  try {
+    const savedLiked = localStorage.getItem('ramleela_video_is_liked');
+    isLiked = savedLiked === 'true';
+
+    const savedCount = localStorage.getItem('ramleela_video_likes_count');
+    if (savedCount !== null) {
+      const parsed = parseInt(savedCount, 10);
+      if (!isNaN(parsed) && parsed >= BASE_LIKES) {
+        currentLikes = parsed;
+      }
+    }
+  } catch (err) {
+    console.warn('Storage read failed:', err);
+  }
+
+  // 2. Format with commas (e.g. 1,080)
+  function formatLikes(num) {
+    return Number(num).toLocaleString('en-IN');
+  }
+
+  // 3. Render state
+  function updateUI(animate = false) {
+    countBadge.textContent = formatLikes(currentLikes);
+    if (footerCounter) {
+      footerCounter.textContent = formatLikes(currentLikes);
+    }
+
+    if (isLiked) {
+      btnLike.classList.add('liked');
+      btnLike.setAttribute('aria-pressed', 'true');
+      btnLike.setAttribute('title', 'You loved this presentation (Click to unlike)');
+      if (animate) {
+        btnLike.classList.remove('animate-pop');
+        void btnLike.offsetWidth; // Trigger reflow for animation restart
+        btnLike.classList.add('animate-pop');
+        spawnPlusOneParticle(btnLike);
+      }
+    } else {
+      btnLike.classList.remove('liked', 'animate-pop');
+      btnLike.setAttribute('aria-pressed', 'false');
+      btnLike.setAttribute('title', 'Like this divine presentation');
+    }
+  }
+
+  function spawnPlusOneParticle(parent) {
+    const p = document.createElement('span');
+    p.className = 'like-particle-plus-one';
+    p.textContent = '+1 ❤️';
+    parent.appendChild(p);
+    setTimeout(() => {
+      p.remove();
+    }, 900);
+  }
+
+  // 4. Optional backend sync (falls back gracefully on GitHub Pages)
+  fetch('/api/likes')
+    .then((res) => res.ok ? res.json() : null)
+    .then((data) => {
+      if (data && typeof data.likes === 'number') {
+        currentLikes = data.likes + (isLiked ? 1 : 0);
+        updateUI();
+      }
+    })
+    .catch(() => {
+      // Static hosted fallback - purely local
+    });
+
+  updateUI();
+
+  // 5. Click handler
+  btnLike.addEventListener('click', (e) => {
+    e.stopPropagation();
+
+    isLiked = !isLiked;
+    if (isLiked) {
+      currentLikes += 1;
+      // Play a soft sacred temple bell harmonic tone
+      if (typeof playTempleBellTone === 'function') {
+        playTempleBellTone(784, 0.25);
+      }
+    } else {
+      currentLikes = Math.max(BASE_LIKES, currentLikes - 1);
+    }
+
+    // Persist locally
+    try {
+      localStorage.setItem('ramleela_video_is_liked', isLiked ? 'true' : 'false');
+      localStorage.setItem('ramleela_video_likes_count', currentLikes.toString());
+    } catch (err) {
+      console.warn('Storage save failed:', err);
+    }
+
+    updateUI(isLiked);
+
+    // Sync to backend if available
+    fetch('/api/likes', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ action: isLiked ? 'like' : 'unlike' })
+    }).catch(() => {});
   });
 }
 

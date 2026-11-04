@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Outfit:wght@300;400;500;600;700&family=Rozha+One&family=Yatra+One&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="styles.css?v=3">
+  <link rel="stylesheet" href="styles.css?v=4">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🪔</text></svg>">
 </head>
 <body>
@@ -99,6 +99,15 @@
             </div>
 
             <div class="mandap-controls">
+              <!-- Like Button with Count -->
+              <button class="control-btn btn-like" id="btn-like-video" title="Like this divine presentation" aria-label="Like video">
+                <svg class="like-heart-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+                <span class="like-btn-label">Like</span>
+                <span class="like-count-badge" id="video-like-count">1,080</span>
+              </button>
+
               <!-- Cast Button -->
               <a href="cast.html" class="control-btn" id="btn-mandap-cast" title="View Cast & Characters (Coming Soon)">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -253,6 +262,10 @@
             <div class="video-tips">
               <span>Tips:</span>
               <span>Keyboard Shortcuts: <span class="kbd-shortcut">F</span> Fullscreen, <span class="kbd-shortcut">T</span> Theater Mode, <span class="kbd-shortcut">Space</span> Play/Pause, <span class="kbd-shortcut">Esc</span> Exit</span>
+            </div>
+            <div class="video-devotional-stat" id="video-devotional-stat">
+              <span class="stat-heart">❤️</span>
+              <span class="stat-text"><strong id="stat-like-counter">1,080</strong> Devotees Loved This Video</span>
             </div>
           </div>
         </div>
@@ -466,6 +479,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=3"></script>
+  <script src="script.js?v=4"></script>
 </body>
 </html>
