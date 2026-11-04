@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initLightbox();
   initTempleBell();
   initDiyaOffering();
+  initCastPage();
 });
 
 /* ==========================================================================
@@ -21,24 +22,100 @@ function initVideoStreamPlayer() {
   const overlay = document.getElementById('video-play-overlay');
   const btnFullscreen = document.getElementById('btn-fullscreen');
   const btnTheater = document.getElementById('btn-theater');
+  const btnHeroWatch = document.getElementById('btn-hero-watch');
 
   if (!video || !pavilion) return;
 
-  // Video element events (only if HTML5 video tag)
   const isHtml5Video = video.tagName === 'VIDEO';
 
-  if (isHtml5Video) {
+  // Request Fullscreen
+  async function enterFullscreen() {
+    try {
+      if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+        if (pavilion.requestFullscreen) {
+          await pavilion.requestFullscreen();
+        } else if (pavilion.webkitRequestFullscreen) {
+          await pavilion.webkitRequestFullscreen();
+        } else if (video.requestFullscreen) {
+          await video.requestFullscreen();
+        }
+      }
+    } catch (err) {
+      console.warn('Fullscreen request failed:', err);
+    }
+  }
+
+  // Exit Fullscreen
+  async function exitFullscreen() {
+    try {
+      if (document.fullscreenElement || document.webkitFullscreenElement) {
+        if (document.exitFullscreen) {
+          await document.exitFullscreen();
+        } else if (document.webkitExitFullscreen) {
+          await document.webkitExitFullscreen();
+        }
+      }
+    } catch (err) {
+      console.warn('Exit fullscreen failed:', err);
+    }
+  }
+
+  // Toggle Fullscreen API
+  async function toggleFullscreen() {
+    if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+      await enterFullscreen();
+    } else {
+      await exitFullscreen();
+    }
+  }
+
+  // The video should play in full screen by default
+  function playVideoDefaultFullscreen() {
+    // 1. Immediately request fullscreen
+    enterFullscreen();
+
+    // 2. Hide the sacred play overlay
     if (overlay) {
-      overlay.addEventListener('click', () => {
-        video.play().then(() => {
-          overlay.classList.add('hidden');
-        }).catch((err) => {
-          console.log('Playback error/autoplay policy:', err);
-        });
-      });
+      overlay.classList.add('hidden');
     }
 
+    // 3. Focus and activate player without destroying iframe DOM
+    if (isHtml5Video) {
+      video.play().catch((err) => {
+        console.log('Playback error/autoplay policy:', err);
+      });
+    } else if (video.tagName === 'IFRAME') {
+      try {
+        video.focus();
+      } catch (e) {
+        console.log('Iframe focus:', e);
+      }
+    }
+  }
+
+  // Overlay Play Button Handler (Plays in Full Screen by default)
+  if (overlay) {
+    overlay.addEventListener('click', (e) => {
+      e.stopPropagation();
+      playVideoDefaultFullscreen();
+    });
+  }
+
+  // Hero Section "Watch Video" CTA (Plays in Full Screen by default)
+  if (btnHeroWatch) {
+    btnHeroWatch.addEventListener('click', (e) => {
+      e.preventDefault();
+      pavilion.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      playVideoDefaultFullscreen();
+    });
+  }
+
+  // HTML5 Video Events
+  if (isHtml5Video) {
     video.addEventListener('play', () => {
+      if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+        enterFullscreen();
+      }
       overlay && overlay.classList.add('hidden');
     });
 
@@ -49,32 +126,24 @@ function initVideoStreamPlayer() {
     });
   }
 
-  // Toggle Fullscreen API
-  async function toggleFullscreen() {
-    try {
-      if (!document.fullscreenElement && !document.webkitFullscreenElement) {
-        if (pavilion.requestFullscreen) {
-          await pavilion.requestFullscreen();
-        } else if (pavilion.webkitRequestFullscreen) {
-          await pavilion.webkitRequestFullscreen();
-        } else if (video.requestFullscreen) {
-          await video.requestFullscreen();
-        }
-      } else {
-        if (document.exitFullscreen) {
-          await document.exitFullscreen();
-        } else if (document.webkitExitFullscreen) {
-          await document.webkitExitFullscreen();
-        }
-      }
-    } catch (err) {
-      console.warn('Fullscreen request failed:', err);
+  // Fullscreen controls auto-fade on inactivity
+  let mouseTimer = null;
+  pavilion.addEventListener('mousemove', () => {
+    if (document.fullscreenElement || document.webkitFullscreenElement) {
+      pavilion.classList.add('user-active');
+      clearTimeout(mouseTimer);
+      mouseTimer = setTimeout(() => {
+        pavilion.classList.remove('user-active');
+      }, 2500);
     }
-  }
+  });
 
   // Update button visual state on fullscreen change
   function handleFullscreenChange() {
     const isFull = !!(document.fullscreenElement || document.webkitFullscreenElement);
+    if (!isFull) {
+      pavilion.classList.remove('user-active');
+    }
     if (!btnFullscreen) return;
     if (isFull) {
       btnFullscreen.innerHTML = `
@@ -123,12 +192,17 @@ function initVideoStreamPlayer() {
     } else if (e.key === 't' || e.key === 'T') {
       e.preventDefault();
       btnTheater && btnTheater.click();
-    } else if (e.key === ' ' && isHtml5Video && document.activeElement !== video) {
-      e.preventDefault();
-      if (video.paused) {
-        video.play();
-      } else {
-        video.pause();
+    } else if (e.key === ' ') {
+      if (overlay && !overlay.classList.contains('hidden')) {
+        e.preventDefault();
+        playVideoDefaultFullscreen();
+      } else if (isHtml5Video && document.activeElement !== video) {
+        e.preventDefault();
+        if (video.paused) {
+          playVideoDefaultFullscreen();
+        } else {
+          video.pause();
+        }
       }
     }
   });
@@ -503,4 +577,109 @@ function initDiyaCanvas() {
   }
 
   animate();
+}
+
+/* ==========================================================================
+   7. CAST & CHARACTERS COMING SOON PAGE LOGIC
+   ========================================================================== */
+function showToast(message, duration = 3800) {
+  let toast = document.getElementById('toast-feedback');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'toast-feedback';
+    toast.className = 'toast-feedback';
+    toast.innerHTML = `<span class="toast-icon">🙏</span><span class="toast-text" id="toast-message"></span>`;
+    document.body.appendChild(toast);
+  }
+
+  const textEl = toast.querySelector('#toast-message') || toast;
+  textEl.textContent = message;
+  toast.classList.add('show');
+
+  if (toast._timer) clearTimeout(toast._timer);
+  toast._timer = setTimeout(() => {
+    toast.classList.remove('show');
+  }, duration);
+}
+
+function initCastPage() {
+  const notifyForm = document.getElementById('cast-notify-form');
+  const shareBtn = document.getElementById('btn-share-cast');
+
+  // Handle email notification subscription
+  if (notifyForm) {
+    notifyForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const emailInput = document.getElementById('notify-email');
+      const email = emailInput ? emailInput.value.trim() : '';
+
+      if (email) {
+        try {
+          localStorage.setItem('ramleela_cast_alert_email', email);
+        } catch (err) {
+          console.warn('localStorage not available', err);
+        }
+
+        if (typeof playTempleBellTone === 'function') {
+          playTempleBellTone(587, 2.5);
+        }
+
+        showToast('🙏 धन्यवाद! You will be notified the moment the cast list is released.');
+        notifyForm.reset();
+      }
+    });
+  }
+
+  // Handle Share Page Link
+  if (shareBtn) {
+    shareBtn.addEventListener('click', async () => {
+      const shareData = {
+        title: 'Ramleela - Ruby Park | Cast & Characters Coming Soon',
+        text: 'Experience the divine Ramleela - Ruby Park! Cast & characters coming soon.',
+        url: window.location.href
+      };
+
+      if (typeof playTempleBellTone === 'function') {
+        playTempleBellTone(659, 1.8);
+      }
+
+      if (navigator.share && navigator.canShare && navigator.canShare(shareData)) {
+        try {
+          await navigator.share(shareData);
+        } catch (err) {
+          if (err.name !== 'AbortError') {
+            copyToClipboard(window.location.href);
+          }
+        }
+      } else {
+        copyToClipboard(window.location.href);
+      }
+    });
+  }
+
+  function copyToClipboard(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(() => {
+        showToast('✨ Page link copied to clipboard! Share with family & devotees.');
+      }).catch(() => {
+        fallbackCopyText(text);
+      });
+    } else {
+      fallbackCopyText(text);
+    }
+  }
+
+  function fallbackCopyText(text) {
+    const tempInput = document.createElement('input');
+    tempInput.value = text;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    try {
+      document.execCommand('copy');
+      showToast('✨ Link copied to clipboard!');
+    } catch (e) {
+      showToast('Link: ' + text);
+    }
+    document.body.removeChild(tempInput);
+  }
 }

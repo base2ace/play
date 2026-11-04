@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Outfit:wght@300;400;500;600;700&family=Rozha+One&family=Yatra+One&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=3">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🪔</text></svg>">
 </head>
 <body>
@@ -57,6 +57,15 @@
           </svg>
           Watch Video
         </a>
+        <a href="cast.html" class="btn btn-outline-gold" id="btn-hero-cast" title="Ramleela Cast & Characters (Coming Soon)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+          Cast
+        </a>
         <a href="#gallery-section" class="btn btn-outline-gold" id="btn-hero-gallery" style="display: none;">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
@@ -90,6 +99,17 @@
             </div>
 
             <div class="mandap-controls">
+              <!-- Cast Button -->
+              <a href="cast.html" class="control-btn" id="btn-mandap-cast" title="View Cast & Characters (Coming Soon)">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                  <circle cx="9" cy="7" r="4"/>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+                Cast
+              </a>
+
               <!-- Fullscreen Button -->
               <button class="control-btn btn-fullscreen" id="btn-fullscreen" title="Full Screen Cinema (Press F)">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
@@ -116,9 +136,116 @@
               class="custom-video-stream"
               src="https://drive.google.com/file/d/1qKjs42FHvkA9tz_5JhZXn9I7L70uWm-K/preview" 
               title="Ramleela - Ruby Park Stream"
-              allow="autoplay; fullscreen" 
-              allowfullscreen>
+              allow="autoplay; fullscreen; picture-in-picture" 
+              allowfullscreen
+              webkitallowfullscreen
+              mozallowfullscreen>
             </iframe>
+
+            <!-- Beautiful Ethnic Thin Frame (Ramayana / Ancient Ayodhya Era) -->
+            <div class="ethnic-video-frame" id="ethnic-video-frame" aria-hidden="true">
+              <!-- Corner Ornaments (Vedic Gold Filigree - Thicker Carved Gold) -->
+              <svg class="ethnic-corner ethnic-corner-tl" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="goldFiligree" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#fff6bb"/>
+                    <stop offset="35%" stop-color="#f5c044"/>
+                    <stop offset="75%" stop-color="#c4942b"/>
+                    <stop offset="100%" stop-color="#8a5e12"/>
+                  </linearGradient>
+                </defs>
+                <path d="M 3 42 V 9 C 3 5.7 5.7 3 9 3 H 42" stroke="url(#goldFiligree)" stroke-width="3" stroke-linecap="round"/>
+                <path d="M 3 42 C 1 42 0 40 1 38 C 2 36 4 37 4 39" stroke="url(#goldFiligree)" stroke-width="2"/>
+                <path d="M 42 3 C 42 1 40 0 38 1 C 36 2 37 4 39 4" stroke="url(#goldFiligree)" stroke-width="2"/>
+                <path d="M 8 34 V 14 C 8 10.7 10.7 8 14 8 H 34" stroke="url(#goldFiligree)" stroke-width="1.8" opacity="0.9" stroke-linecap="round"/>
+                <path d="M 8 8 Q 16 8 20 16 Q 24 24 33 20" stroke="url(#goldFiligree)" stroke-width="2" stroke-linecap="round"/>
+                <path d="M 8 8 Q 8 16 16 20 Q 24 24 20 33" stroke="url(#goldFiligree)" stroke-width="2" stroke-linecap="round"/>
+                <path d="M 14 14 L 18 10 L 22 14 L 18 18 Z" fill="url(#goldFiligree)"/>
+                <circle cx="18" cy="18" r="1.8" fill="#fffbe0"/>
+                <circle cx="9" cy="9" r="2.2" fill="url(#goldFiligree)"/>
+              </svg>
+
+              <svg class="ethnic-corner ethnic-corner-tr" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 3 42 V 9 C 3 5.7 5.7 3 9 3 H 42" stroke="url(#goldFiligree)" stroke-width="3" stroke-linecap="round"/>
+                <path d="M 3 42 C 1 42 0 40 1 38 C 2 36 4 37 4 39" stroke="url(#goldFiligree)" stroke-width="2"/>
+                <path d="M 42 3 C 42 1 40 0 38 1 C 36 2 37 4 39 4" stroke="url(#goldFiligree)" stroke-width="2"/>
+                <path d="M 8 34 V 14 C 8 10.7 10.7 8 14 8 H 34" stroke="url(#goldFiligree)" stroke-width="1.8" opacity="0.9" stroke-linecap="round"/>
+                <path d="M 8 8 Q 16 8 20 16 Q 24 24 33 20" stroke="url(#goldFiligree)" stroke-width="2" stroke-linecap="round"/>
+                <path d="M 8 8 Q 8 16 16 20 Q 24 24 20 33" stroke="url(#goldFiligree)" stroke-width="2" stroke-linecap="round"/>
+                <path d="M 14 14 L 18 10 L 22 14 L 18 18 Z" fill="url(#goldFiligree)"/>
+                <circle cx="18" cy="18" r="1.8" fill="#fffbe0"/>
+                <circle cx="9" cy="9" r="2.2" fill="url(#goldFiligree)"/>
+              </svg>
+
+              <svg class="ethnic-corner ethnic-corner-bl" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 3 42 V 9 C 3 5.7 5.7 3 9 3 H 42" stroke="url(#goldFiligree)" stroke-width="3" stroke-linecap="round"/>
+                <path d="M 3 42 C 1 42 0 40 1 38 C 2 36 4 37 4 39" stroke="url(#goldFiligree)" stroke-width="2"/>
+                <path d="M 42 3 C 42 1 40 0 38 1 C 36 2 37 4 39 4" stroke="url(#goldFiligree)" stroke-width="2"/>
+                <path d="M 8 34 V 14 C 8 10.7 10.7 8 14 8 H 34" stroke="url(#goldFiligree)" stroke-width="1.8" opacity="0.9" stroke-linecap="round"/>
+                <path d="M 8 8 Q 16 8 20 16 Q 24 24 33 20" stroke="url(#goldFiligree)" stroke-width="2" stroke-linecap="round"/>
+                <path d="M 8 8 Q 8 16 16 20 Q 24 24 20 33" stroke="url(#goldFiligree)" stroke-width="2" stroke-linecap="round"/>
+                <path d="M 14 14 L 18 10 L 22 14 L 18 18 Z" fill="url(#goldFiligree)"/>
+                <circle cx="18" cy="18" r="1.8" fill="#fffbe0"/>
+                <circle cx="9" cy="9" r="2.2" fill="url(#goldFiligree)"/>
+              </svg>
+
+              <svg class="ethnic-corner ethnic-corner-br" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 3 42 V 9 C 3 5.7 5.7 3 9 3 H 42" stroke="url(#goldFiligree)" stroke-width="3" stroke-linecap="round"/>
+                <path d="M 3 42 C 1 42 0 40 1 38 C 2 36 4 37 4 39" stroke="url(#goldFiligree)" stroke-width="2"/>
+                <path d="M 42 3 C 42 1 40 0 38 1 C 36 2 37 4 39 4" stroke="url(#goldFiligree)" stroke-width="2"/>
+                <path d="M 8 34 V 14 C 8 10.7 10.7 8 14 8 H 34" stroke="url(#goldFiligree)" stroke-width="1.8" opacity="0.9" stroke-linecap="round"/>
+                <path d="M 8 8 Q 16 8 20 16 Q 24 24 33 20" stroke="url(#goldFiligree)" stroke-width="2" stroke-linecap="round"/>
+                <path d="M 8 8 Q 8 16 16 20 Q 24 24 20 33" stroke="url(#goldFiligree)" stroke-width="2" stroke-linecap="round"/>
+                <path d="M 14 14 L 18 10 L 22 14 L 18 18 Z" fill="url(#goldFiligree)"/>
+                <circle cx="18" cy="18" r="1.8" fill="#fffbe0"/>
+                <circle cx="9" cy="9" r="2.2" fill="url(#goldFiligree)"/>
+              </svg>
+
+              <!-- Top Surya Dynasty Sun Crest -->
+              <div class="ethnic-crest ethnic-crest-top">
+                <svg viewBox="0 0 100 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M 4 12 H 34 C 38 12 41 8 44 4" stroke="url(#goldFiligree)" stroke-width="2.2" stroke-linecap="round"/>
+                  <circle cx="16" cy="12" r="1.6" fill="url(#goldFiligree)"/>
+                  <circle cx="28" cy="12" r="1.6" fill="url(#goldFiligree)"/>
+                  <path d="M 96 12 H 66 C 62 12 59 8 56 4" stroke="url(#goldFiligree)" stroke-width="2.2" stroke-linecap="round"/>
+                  <circle cx="84" cy="12" r="1.6" fill="url(#goldFiligree)"/>
+                  <circle cx="72" cy="12" r="1.6" fill="url(#goldFiligree)"/>
+                  <circle cx="50" cy="12" r="4.5" fill="url(#goldFiligree)"/>
+                  <circle cx="50" cy="12" r="8" stroke="url(#goldFiligree)" stroke-width="1.4" stroke-dasharray="2 2.5"/>
+                  <path d="M 50 2 V 6 M 50 18 V 22 M 40 12 H 44 M 56 12 H 60" stroke="url(#goldFiligree)" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+              </div>
+
+              <!-- Bottom Sacred Padma (Lotus) Crest -->
+              <div class="ethnic-crest ethnic-crest-bottom">
+                <svg viewBox="0 0 100 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M 4 12 H 34 C 38 12 41 16 44 20" stroke="url(#goldFiligree)" stroke-width="2.2" stroke-linecap="round"/>
+                  <circle cx="16" cy="12" r="1.6" fill="url(#goldFiligree)"/>
+                  <circle cx="28" cy="12" r="1.6" fill="url(#goldFiligree)"/>
+                  <path d="M 96 12 H 66 C 62 12 59 16 56 20" stroke="url(#goldFiligree)" stroke-width="2.2" stroke-linecap="round"/>
+                  <circle cx="84" cy="12" r="1.6" fill="url(#goldFiligree)"/>
+                  <circle cx="72" cy="12" r="1.6" fill="url(#goldFiligree)"/>
+                  <path d="M 50 5 C 46 11 46 15 50 18 C 54 15 54 11 50 5 Z" fill="url(#goldFiligree)"/>
+                  <path d="M 45 10 C 42 14 43 17 46 18 C 47 15 47 13 45 10 Z" fill="url(#goldFiligree)" opacity="0.9"/>
+                  <path d="M 55 10 C 58 14 57 17 54 18 C 53 15 53 13 55 10 Z" fill="url(#goldFiligree)" opacity="0.9"/>
+                  <circle cx="50" cy="19.5" r="1.6" fill="#fffbe0"/>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Big Sacred Play in Full Screen Overlay -->
+            <div class="video-play-overlay" id="video-play-overlay" title="Click to Watch in Full Screen">
+              <button class="big-sacred-play-btn" id="big-play-btn" aria-label="Play Streaming Video in Full Screen">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+              </button>
+              <div class="overlay-stream-text">
+                <span class="stream-pulse-dot"></span>
+                <span>Play in Full Screen</span>
+              </div>
+              <span class="overlay-sub-hint">HD Cinema Streaming • Full Screen by Default</span>
+            </div>
           </div>
 
           <!-- Pavilion Footer & Hotkeys -->
@@ -325,6 +452,11 @@
       <div class="footer-shloka">
         ॥ Jai Shri Ram ॥
       </div>
+      <div class="footer-links">
+        <a href="index.html" class="footer-link active">Watch Video</a>
+        <span class="footer-link-divider">•</span>
+        <a href="cast.html" class="footer-link">Cast &amp; Characters (Coming Soon)</a>
+      </div>
       <p class="footer-credits">
         Ramleela - Ruby Park • Crafted &amp; Powered with Devotion by <span class="footer-brand">Base2Ace Technologies</span>
       </p>
@@ -334,6 +466,6 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=3"></script>
 </body>
 </html>

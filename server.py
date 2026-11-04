@@ -21,6 +21,7 @@ class StreamingHandler(http.server.SimpleHTTPRequestHandler):
         self.send_header('Access-Control-Allow-Origin', '*')
         self.send_header('Access-Control-Allow-Methods', 'GET, HEAD, OPTIONS')
         self.send_header('Access-Control-Allow-Headers', 'Range, Content-Type, Accept-Encoding')
+        self.send_header('Cache-Control', 'no-cache, no-store, must-revalidate')
         super().end_headers()
 
     def do_OPTIONS(self):
@@ -132,8 +133,8 @@ class StreamingHandler(http.server.SimpleHTTPRequestHandler):
 def run():
     web_dir = os.path.dirname(os.path.abspath(__file__))
     os.chdir(web_dir)
-    socketserver.TCPServer.allow_reuse_address = True
-    with socketserver.TCPServer(("", PORT), StreamingHandler) as httpd:
+    socketserver.ThreadingTCPServer.allow_reuse_address = True
+    with socketserver.ThreadingTCPServer(("", PORT), StreamingHandler) as httpd:
         print(f"Ramleela Streaming Server running at http://localhost:{PORT}")
         httpd.serve_forever()
 
