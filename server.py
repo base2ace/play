@@ -58,10 +58,10 @@ class StreamingHandler(http.server.SimpleHTTPRequestHandler):
             try:
                 with open(path, 'r', encoding='utf-8') as f:
                     data = json.load(f)
-                    return int(data.get('likes', 1080))
+                    return int(data.get('likes', 81))
             except Exception:
                 pass
-        return 1080
+        return 81
 
     def write_likes(self, count):
         path = self.get_likes_file_path()
@@ -89,7 +89,7 @@ class StreamingHandler(http.server.SimpleHTTPRequestHandler):
             current = self.read_likes()
             if action == 'like':
                 current += 1
-            elif action == 'unlike' and current > 1080:
+            elif action == 'unlike' and current > 81:
                 current -= 1
             self.write_likes(current)
             resp = json.dumps({'likes': current, 'success': True}).encode('utf-8')

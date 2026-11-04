@@ -219,7 +219,7 @@ function initVideoLikeSystem() {
 
   if (!btnLike || !countBadge) return;
 
-  const BASE_LIKES = 1080;
+  const BASE_LIKES = 81;
   let currentLikes = BASE_LIKES;
   let isLiked = false;
 
@@ -231,9 +231,15 @@ function initVideoLikeSystem() {
     const savedCount = localStorage.getItem('ramleela_video_likes_count');
     if (savedCount !== null) {
       const parsed = parseInt(savedCount, 10);
-      if (!isNaN(parsed) && parsed >= BASE_LIKES) {
+      // If legacy 1080 value was stored, migrate cleanly to 81 baseline
+      if (!isNaN(parsed) && parsed < 500 && parsed >= BASE_LIKES) {
         currentLikes = parsed;
+      } else {
+        currentLikes = BASE_LIKES + (isLiked ? 1 : 0);
+        localStorage.setItem('ramleela_video_likes_count', currentLikes.toString());
       }
+    } else {
+      currentLikes = BASE_LIKES + (isLiked ? 1 : 0);
     }
   } catch (err) {
     console.warn('Storage read failed:', err);
