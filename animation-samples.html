@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Side Animation Showcase • Ramleela - Ruby Park</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Outfit:wght@300;400;500;600;700&family=Rozha+One&family=Yatra+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=5">
+  <style>
+    body {
+      background: #080503;
+      color: #eedbc2;
+      font-family: 'Outfit', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .samples-header {
+      text-align: center;
+      padding: 3rem 1.5rem 1.5rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    .samples-badge {
+      display: inline-block;
+      padding: 0.35rem 1rem;
+      background: rgba(245, 192, 68, 0.12);
+      border: 1px solid rgba(245, 192, 68, 0.4);
+      color: #f5c044;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      border-radius: 999px;
+      margin-bottom: 1rem;
+    }
+
+    .samples-title {
+      font-family: 'Rozha One', serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      color: #ffd966;
+      text-shadow: 0 0 30px rgba(245, 192, 68, 0.4);
+      margin-bottom: 0.5rem;
+    }
+
+    .samples-subtitle {
+      font-size: 1.1rem;
+      color: #bfaa92;
+      max-width: 650px;
+      margin: 0 auto 1.5rem;
+    }
+
+    .samples-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem 4rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 2rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    .sample-card {
+      background: rgba(20, 10, 5, 0.85);
+      border: 2px solid rgba(245, 192, 68, 0.3);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8);
+      transition: all 0.35s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sample-card:hover {
+      border-color: #f5c044;
+      transform: translateY(-6px);
+      box-shadow: 0 20px 50px rgba(245, 192, 68, 0.25), 0 0 30px rgba(0, 0, 0, 0.9);
+    }
+
+    .sample-img-wrap {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      overflow: hidden;
+    }
+
+    .sample-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .sample-card:hover .sample-img-wrap img {
+      transform: scale(1.04);
+    }
+
+    .sample-card-body {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .sample-num {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #f5c044;
+      letter-spacing: 2px;
+      margin-bottom: 0.3rem;
+    }
+
+    .sample-card-title {
+      font-family: 'Rozha One', serif;
+      font-size: 1.45rem;
+      color: #fff5e4;
+      margin-bottom: 0.75rem;
+    }
+
+    .sample-card-desc {
+      font-size: 0.92rem;
+      color: #bfaa92;
+      line-height: 1.55;
+      margin-bottom: 1.25rem;
+      flex-grow: 1;
+    }
+
+    .sample-features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.25rem;
+      font-size: 0.88rem;
+      color: #eedbc2;
+    }
+
+    .sample-features li {
+      padding: 0.3rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .sample-features li::before {
+      content: "✦";
+      color: #f5c044;
+      font-size: 0.8rem;
+    }
+
+    /* Live Flank Animation Layer: Hanging Diyas Demo */
+    .hanging-diya-flank {
+      position: fixed;
+      top: 0;
+      width: 70px;
+      height: 380px;
+      pointer-events: none;
+      z-index: 5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transform-origin: top center;
+      animation: gentleSway 4.5s ease-in-out infinite alternate;
+    }
+
+    .hanging-diya-flank.left { left: 16px; }
+    .hanging-diya-flank.right { right: 16px; animation-delay: -2.25s; }
+
+    @keyframes gentleSway {
+      0% { transform: rotate(-2.5deg); }
+      100% { transform: rotate(2.5deg); }
+    }
+
+    .diya-chain {
+      width: 4px;
+      height: 180px;
+      background: repeating-linear-gradient(180deg, #f5c044 0px, #c4942b 6px, #42260c 10px);
+      box-shadow: 0 0 6px rgba(245, 192, 68, 0.4);
+    }
+
+    .diya-lamp-body {
+      width: 50px;
+      height: 35px;
+      background: linear-gradient(135deg, #fff0aa 0%, #f5c044 45%, #8a5e12 100%);
+      border-radius: 0 0 50px 50px;
+      position: relative;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.9), 0 0 15px rgba(245, 192, 68, 0.5);
+    }
+
+    .diya-flame {
+      position: absolute;
+      top: -24px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 14px;
+      height: 26px;
+      background: radial-gradient(ellipse at bottom, #fff 10%, #ffd000 45%, #ff4d00 85%);
+      border-radius: 50% 50% 20% 20% / 80% 80% 20% 20%;
+      box-shadow: 0 0 20px #ff9900, 0 0 45px #ff5500;
+      animation: flameWobble 1.8s infinite ease-in-out alternate;
+    }
+
+    @keyframes flameWobble {
+      0% { transform: translateX(-50%) scale(1) rotate(-2deg); }
+      50% { transform: translateX(-50%) scale(1.1, 0.95) rotate(2deg); }
+      100% { transform: translateX(-50%) scale(0.95, 1.05) rotate(-1deg); }
+    }
+
+    .return-bar {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .return-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      background: #f5c044;
+      color: #1a0c06;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 0 20px rgba(245, 192, 68, 0.4);
+      transition: all 0.25s ease;
+    }
+
+    .return-btn:hover {
+      background: #ffd966;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Live Demo: Hanging Brass Diyas on Left and Right -->
+  <div class="hanging-diya-flank left" id="live-diya-left">
+    <div class="diya-chain"></div>
+    <div class="diya-lamp-body">
+      <div class="diya-flame"></div>
+    </div>
+  </div>
+
+  <div class="hanging-diya-flank right" id="live-diya-right">
+    <div class="diya-chain"></div>
+    <div class="diya-lamp-body">
+      <div class="diya-flame"></div>
+    </div>
+  </div>
+
+  <header class="samples-header">
+    <span class="samples-badge">AYODHYA HERITAGE CONCEPTS</span>
+    <h1 class="samples-title">Side Animation Samples</h1>
+    <p class="samples-subtitle">
+      Explore the three distinct side-framing concepts crafted to enrich the Ramleela viewing experience with ancient temple grandeur.
+    </p>
+
+    <div class="return-bar">
+      <a href="index.html" class="return-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Back to Ramleela Main Page
+      </a>
+    </div>
+  </header>
+
+  <main class="samples-grid">
+    <!-- Card 1 -->
+    <article class="sample-card">
+      <div class="sample-img-wrap">
+        <img src="assets/images/sample-1-hanging-diyas.jpg" alt="Sample 1: Hanging Brass Temple Diyas">
+      </div>
+      <div class="sample-card-body">
+        <span class="sample-num">CONCEPT 01</span>
+        <h2 class="sample-card-title">Hanging Brass Temple Diyas</h2>
+        <p class="sample-card-desc">
+          Antique golden brass hanging lamps (*Deepams*) suspended by delicate chains on both sides of the screen. Look at the left and right edges right now to see the live swaying animation in action!
+        </p>
+        <ul class="sample-features">
+          <li>Gentle pendulum sway stirring with ambient breezes</li>
+          <li>Flickering warm amber flame casting golden halos</li>
+          <li>Fixed viewport anchoring that persists on scroll</li>
+        </ul>
+        <div style="color: #4ade80; font-weight: 600; font-size: 0.88rem; margin-top: auto; padding-top: 0.5rem;">
+          ✓ Currently previewing live on screen edges!
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 2 -->
+    <article class="sample-card">
+      <div class="sample-img-wrap">
+        <img src="assets/images/sample-2-pushpa-vrishti.jpg" alt="Sample 2: Pushpa Vrishti Celestial Petal Shower">
+      </div>
+      <div class="sample-card-body">
+        <span class="sample-num">CONCEPT 02</span>
+        <h2 class="sample-card-title">Pushpa Vrishti (Celestial Petal Shower)</h2>
+        <p class="sample-card-desc">
+          The divine flower shower showered by the Devas upon Sri Rama. Sacred saffron-orange marigold petals and tender pink lotus blossoms gently drifting down both flanks of the screen.
+        </p>
+        <ul class="sample-features">
+          <li>Cascading descent with smooth 3D tumbling rotation</li>
+          <li>Gentle horizontal breeze drift down the margins</li>
+          <li>Soft motion blur for high-speed fluidity</li>
+        </ul>
+        <div style="color: #ffd966; font-size: 0.88rem; margin-top: auto; padding-top: 0.5rem;">
+          Ethereal, celebratory & divine aesthetic
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 3 -->
+    <article class="sample-card">
+      <div class="sample-img-wrap">
+        <img src="assets/images/sample-3-temple-pillars.jpg" alt="Sample 3: Carved Vedic Pillars and Havan Embers">
+      </div>
+      <div class="sample-card-body">
+        <span class="sample-num">CONCEPT 03</span>
+        <h2 class="sample-card-title">Carved Vedic Pillars (Devstambha)</h2>
+        <p class="sample-card-desc">
+          Ancient Treta Yuga temple stone columns flanking the viewport, embossed with sacred Surya seals and the Kodanda bow, with golden havan spark embers softly rising along the borders.
+        </p>
+        <ul class="sample-features">
+          <li>Architectural temple courtyard framing</li>
+          <li>Warm rising golden embers and incense wisps</li>
+          <li>Surya crest embossing aligned with Ayodhya dynasty</li>
+        </ul>
+        <div style="color: #ffd966; font-size: 0.88rem; margin-top: auto; padding-top: 0.5rem;">
+          Monumental, majestic & temple-like architecture
+        </div>
+      </div>
+    </article>
+  </main>
+
+</body>
+</html>

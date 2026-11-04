@@ -311,6 +311,10 @@ body {
   position: relative;
 }
 
+.video-stage-container {
+  position: relative;
+}
+
 .video-pavilion-container {
   background: var(--bg-surface);
   border-radius: var(--radius-lg);
@@ -320,9 +324,12 @@ body {
     0 0 40px rgba(245, 192, 68, 0.15),
     inset 0 0 30px rgba(0, 0, 0, 0.8);
   position: relative;
+  z-index: 2;
   overflow: hidden;
   transition: all var(--transition-normal);
 }
+
+
 
 /* Ancient Carved Arch Border Top */
 .mandap-toran-top {
@@ -1480,10 +1487,23 @@ body.theater-mode-active .video-pavilion-container {
   letter-spacing: 0.5px;
 }
 
-.footer-brand {
-  color: var(--gold-pure);
+.footer-brand,
+.footer-brand-link,
+.footer-brand-link:visited {
+  color: var(--gold-pure) !important;
   font-weight: 600;
+  text-decoration: none;
   text-shadow: 0 0 8px rgba(245, 192, 68, 0.4);
+  transition: all var(--transition-fast);
+  display: inline-block;
+}
+
+.footer-brand-link:hover,
+.footer-brand-link:focus,
+.footer-brand-link:active {
+  color: var(--gold-glow) !important;
+  text-shadow: 0 0 12px rgba(245, 192, 68, 0.9), 0 0 22px rgba(255, 140, 0, 0.6);
+  transform: translateY(-1px);
 }
 
 .footer-copyright {
@@ -2048,5 +2068,133 @@ body.theater-mode-active .video-pavilion-container {
   }
   .ethnic-crest-top { top: 1px; }
   .ethnic-crest-bottom { bottom: 1px; }
+}
+
+/* ==========================================================================
+   VEDIC DEVSTAMBHA TEMPLE PILLARS (Ancient Ayodhya Side Architecture)
+   ========================================================================== */
+.vedic-pillar-flank {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  height: 100vh;
+  width: clamp(180px, 18vw, 320px);
+  z-index: 1;
+  pointer-events: none;
+  user-select: none;
+  overflow: hidden;
+  transition: opacity 0.4s ease;
+}
+
+.vedic-pillar-flank.pillar-left {
+  left: 0;
+}
+
+.vedic-pillar-flank.pillar-right {
+  right: 0;
+}
+
+.pillar-monument-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: drop-shadow(5px 0 25px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 15px rgba(245, 192, 68, 0.12));
+  animation: pillarSubtleGlow 6s infinite ease-in-out alternate;
+}
+
+.pillar-left .pillar-monument-img {
+  object-position: left center;
+}
+
+.pillar-right .pillar-monument-img {
+  object-position: right center;
+}
+
+@keyframes pillarSubtleGlow {
+  0% {
+    filter: drop-shadow(5px 0 20px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 10px rgba(245, 192, 68, 0.1));
+  }
+  100% {
+    filter: drop-shadow(5px 0 30px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 22px rgba(255, 140, 0, 0.25));
+  }
+}
+
+/* Fire Brazier Ambient Glow Flicker */
+.pillar-brazier-aura {
+  position: absolute;
+  bottom: 33%;
+  width: 110px;
+  height: 75px;
+  background: radial-gradient(circle, rgba(255, 130, 0, 0.8) 0%, rgba(255, 60, 0, 0.28) 50%, transparent 80%);
+  filter: blur(14px);
+  animation: brazierGlowFlicker 2.2s infinite ease-in-out alternate;
+  pointer-events: none;
+}
+
+.pillar-left .pillar-brazier-aura {
+  left: 75%;
+  transform: translate(-50%, 50%);
+}
+
+.pillar-right .pillar-brazier-aura {
+  left: 25%;
+  transform: translate(-50%, 50%);
+}
+
+@keyframes brazierGlowFlicker {
+  0% { transform: translate(-50%, 50%) scale(0.9); opacity: 0.7; }
+  50% { transform: translate(-50%, 50%) scale(1.15); opacity: 1; }
+  100% { transform: translate(-50%, 50%) scale(0.95); opacity: 0.8; }
+}
+
+/* Rising Sacred Spark Embers from Brazier */
+.pillar-spark {
+  position: absolute;
+  bottom: 34%;
+  width: 4px;
+  height: 4px;
+  background: radial-gradient(circle, #fff 10%, #ffd000 60%, #ff4500 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 8px #ff9900, 0 0 16px #ff3300;
+  opacity: 0;
+  pointer-events: none;
+  animation: emberRise 5s infinite cubic-bezier(0.2, 0.8, 0.3, 1);
+}
+
+.pillar-left .p-sp-1 { left: 72%; animation-delay: 0s; animation-duration: 4.8s; }
+.pillar-left .p-sp-2 { left: 78%; animation-delay: 1.2s; animation-duration: 5.5s; width: 3px; height: 3px; }
+.pillar-left .p-sp-3 { left: 75%; animation-delay: 2.5s; animation-duration: 4.2s; width: 5px; height: 5px; }
+.pillar-left .p-sp-4 { left: 70%; animation-delay: 3.6s; animation-duration: 5.0s; width: 3.5px; height: 3.5px; }
+
+.pillar-right .p-sp-1 { left: 22%; animation-delay: 0.3s; animation-duration: 5.0s; }
+.pillar-right .p-sp-2 { left: 28%; animation-delay: 1.6s; animation-duration: 5.2s; width: 3px; height: 3px; }
+.pillar-right .p-sp-3 { left: 25%; animation-delay: 2.9s; animation-duration: 4.5s; width: 5px; height: 5px; }
+.pillar-right .p-sp-4 { left: 20%; animation-delay: 3.9s; animation-duration: 5.4s; width: 3.5px; height: 3.5px; }
+
+@keyframes emberRise {
+  0% { transform: translateY(0) scale(1); opacity: 0; }
+  15% { opacity: 0.95; }
+  65% { opacity: 0.75; }
+  100% { transform: translateY(-380px) scale(0.3); opacity: 0; }
+}
+
+/* Hide pillars in fullscreen mode so video gets entire screen */
+.video-pavilion-container:fullscreen ~ .vedic-pillar-flank,
+.video-pavilion-container:-webkit-full-screen ~ .vedic-pillar-flank {
+  display: none !important;
+}
+
+/* Responsive Scaling */
+@media (max-width: 1280px) {
+  .vedic-pillar-flank {
+    width: clamp(140px, 14vw, 200px);
+  }
+}
+
+@media (max-width: 860px) {
+  .vedic-pillar-flank {
+    display: none !important;
+  }
 }
 
