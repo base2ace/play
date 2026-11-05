@@ -434,6 +434,29 @@ body {
   box-shadow: 0 4px 18px rgba(255, 75, 75, 0.25);
 }
 
+/* YouTube Direct Like Button in Pavilion Header */
+.control-btn.btn-yt-like {
+  background: rgba(220, 38, 38, 0.12);
+  border: 1px solid rgba(255, 80, 80, 0.45);
+  color: #ff9999;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.82rem;
+  padding: 0.48rem 0.85rem;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.control-btn.btn-yt-like:hover {
+  background: rgba(220, 38, 38, 0.28);
+  border-color: #ff4d4d;
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(220, 38, 38, 0.35);
+}
+
 .control-btn.btn-like .like-heart-icon {
   width: 17px;
   height: 17px;
@@ -2051,6 +2074,98 @@ body.theater-mode-active .video-pavilion-container {
   transform: translateX(-50%) translateY(0);
   opacity: 1;
   pointer-events: auto;
+}
+
+/* Floating YouTube Like Prompt Toast */
+.youtube-like-prompt {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(120px);
+  background: linear-gradient(135deg, #2b1206 0%, #170903 100%);
+  border: 1.5px solid var(--gold-pure);
+  padding: 0.85rem 1.4rem;
+  border-radius: var(--radius-md);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.9), 0 0 30px rgba(245, 192, 68, 0.35);
+  z-index: 10000;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  max-width: 90vw;
+}
+
+.youtube-like-prompt.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.yt-prompt-body {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.yt-prompt-icon {
+  font-size: 1.6rem;
+  flex-shrink: 0;
+}
+
+.yt-prompt-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.yt-prompt-text strong {
+  color: var(--gold-pure);
+  font-family: var(--font-ancient);
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+}
+
+.yt-prompt-text span {
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+}
+
+.yt-prompt-btn {
+  background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%);
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.45rem 0.9rem;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  box-shadow: 0 4px 14px rgba(255, 0, 0, 0.4);
+  transition: all var(--transition-fast);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.yt-prompt-btn:hover {
+  background: #ff1a1a;
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(255, 0, 0, 0.6);
+  color: #fff;
+}
+
+.yt-prompt-close {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0.2rem;
+  margin-left: 0.25rem;
+  transition: color var(--transition-fast);
+}
+
+.yt-prompt-close:hover {
+  color: #fff;
 }
 
 /* ==========================================================================
