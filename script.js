@@ -93,6 +93,9 @@ function initVideoStreamPlayer() {
     } else if (video.tagName === 'IFRAME') {
       try {
         video.focus();
+        if (video.contentWindow) {
+          video.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+        }
       } catch (e) {
         console.log('Iframe focus:', e);
       }

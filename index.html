@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="referrer" content="no-referrer">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Ramleela - Ruby Park</title>
   <meta name="description" content="Experience the divine Treta Yuga era of Ayodhya with streaming Ramleela video and ancient heritage imagery.">
   
@@ -163,13 +163,14 @@
 
           <!-- Video Frame Wrapper -->
           <div class="video-frame-wrapper" id="video-frame-wrapper">
-            <!-- Google Drive Embedded HD Stream Player -->
+            <!-- YouTube HD Stream Player -->
             <iframe 
               id="main-video-player"
               class="custom-video-stream"
-              src="https://drive.google.com/file/d/1qKjs42FHvkA9tz_5JhZXn9I7L70uWm-K/preview" 
-              title="Ramleela - Ruby Park Stream"
-              allow="autoplay; fullscreen; picture-in-picture" 
+              src="https://www.youtube-nocookie.com/embed/-Ikv65tqh5M?enablejsapi=1&rel=0&modestbranding=1&playsinline=1" 
+              title="Ramleela - Ruby Park Performance"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
               allowfullscreen
               webkitallowfullscreen
               mozallowfullscreen>
@@ -397,6 +398,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=12"></script>
+  <script src="script.js?v=14"></script>
 </body>
 </html>
