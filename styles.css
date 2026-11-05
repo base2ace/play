@@ -534,128 +534,8 @@ body {
   display: block;
 }
 
-/* ==========================================================================
-   ETHNIC THIN FRAME (वैदिक स्वर्ण चौखट) - RAMAYANA ERA ORNAMENTATION
-   ========================================================================== */
 .ethnic-video-frame {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 50px; /* Leaves bottom player controls outside the frame */
-  pointer-events: none !important;
-  z-index: 25;
-  box-sizing: border-box;
-  overflow: hidden;
-  transition: all var(--transition-normal);
-}
-
-/* Outer Bold Burnished Gold Border - Layered Royal Vedic Molding */
-.ethnic-video-frame::before {
-  content: '';
-  position: absolute;
-  inset: 6px;
-  border: 5px solid #f5c044;
-  outline: 2px solid rgba(255, 230, 120, 0.95);
-  outline-offset: 3px;
-  border-radius: 4px;
-  box-shadow: 
-    inset 0 0 25px rgba(245, 192, 68, 0.4),
-    0 0 20px rgba(245, 192, 68, 0.55),
-    0 0 10px rgba(0, 0, 0, 0.95);
-  transition: all var(--transition-normal);
-}
-
-/* Inner Dotted / Beaded Vedic Sacred Thread */
-.ethnic-video-frame::after {
-  content: '';
-  position: absolute;
-  inset: 16px;
-  border: 2.5px dashed rgba(245, 192, 68, 0.9);
-  border-radius: 2px;
-  transition: all var(--transition-normal);
-}
-
-.video-pavilion-container:hover .ethnic-video-frame::before {
-  border-color: #ffe585;
-  outline-color: #ffd966;
-  box-shadow: 
-    inset 0 0 35px rgba(245, 192, 68, 0.5),
-    0 0 28px rgba(245, 192, 68, 0.75),
-    0 0 14px rgba(0, 0, 0, 0.95);
-}
-
-.video-pavilion-container:hover .ethnic-video-frame::after {
-  border-color: #fff0aa;
-}
-
-/* Ornate Corner Brackets (Filigree Lotus & Vedic Scrollwork) */
-.ethnic-corner {
-  position: absolute;
-  width: 52px;
-  height: 52px;
-  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.95));
-  transition: transform var(--transition-normal), filter var(--transition-normal);
-  pointer-events: none;
-}
-
-.ethnic-corner-tl {
-  top: 4px;
-  left: 4px;
-}
-
-.ethnic-corner-tr {
-  top: 4px;
-  right: 4px;
-  transform: scaleX(-1);
-}
-
-.ethnic-corner-bl {
-  bottom: 4px;
-  left: 4px;
-  transform: scaleY(-1);
-}
-
-.ethnic-corner-br {
-  bottom: 4px;
-  right: 4px;
-  transform: scale(-1, -1);
-}
-
-.video-pavilion-container:hover .ethnic-corner {
-  filter: drop-shadow(0 0 10px rgba(245, 192, 68, 0.7)) drop-shadow(0 2px 6px rgba(0, 0, 0, 0.95));
-}
-
-/* Top & Bottom Center Crests */
-.ethnic-crest {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 104px;
-  height: 25px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.95));
-  pointer-events: none;
-  transition: all var(--transition-normal);
-}
-
-.ethnic-crest svg {
-  width: 100%;
-  height: 100%;
-}
-
-.ethnic-crest-top {
-  top: 3px;
-}
-
-.ethnic-crest-bottom {
-  bottom: 3px;
-}
-
-.video-pavilion-container:hover .ethnic-crest {
-  filter: drop-shadow(0 0 8px rgba(245, 192, 68, 0.55)) drop-shadow(0 2px 6px rgba(0, 0, 0, 0.95));
+  display: none !important;
 }
 
 /* Big Sacred Play Overlay */
@@ -871,75 +751,7 @@ body {
   z-index: 1 !important;
 }
 
-/* Ethnic frame ONLY encompasses the video; bottom controls & top banner are outside */
-.video-pavilion-container:fullscreen .ethnic-video-frame,
-.video-pavilion-container:-webkit-full-screen .ethnic-video-frame {
-  position: absolute !important;
-  top: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  bottom: 58px !important; /* Bottom player controls are completely outside the frame */
-}
 
-.video-pavilion-container:fullscreen .ethnic-video-frame::before,
-.video-pavilion-container:-webkit-full-screen .ethnic-video-frame::before {
-  inset: 6px !important;
-  border-width: 5px !important;
-  outline-width: 2px !important;
-  outline-offset: 3px !important;
-}
-
-.video-pavilion-container:fullscreen .ethnic-video-frame::after,
-.video-pavilion-container:-webkit-full-screen .ethnic-video-frame::after {
-  inset: 18px !important;
-  border-width: 2.5px !important;
-}
-
-.video-pavilion-container:fullscreen .ethnic-corner,
-.video-pavilion-container:-webkit-full-screen .ethnic-corner {
-  width: 58px !important;
-  height: 58px !important;
-}
-
-.video-pavilion-container:fullscreen .ethnic-corner-tl,
-.video-pavilion-container:-webkit-full-screen .ethnic-corner-tl {
-  top: 4px !important;
-  left: 4px !important;
-}
-
-.video-pavilion-container:fullscreen .ethnic-corner-tr,
-.video-pavilion-container:-webkit-full-screen .ethnic-corner-tr {
-  top: 4px !important;
-  right: 4px !important;
-}
-
-.video-pavilion-container:fullscreen .ethnic-corner-bl,
-.video-pavilion-container:-webkit-full-screen .ethnic-corner-bl {
-  bottom: 4px !important;
-  left: 4px !important;
-}
-
-.video-pavilion-container:fullscreen .ethnic-corner-br,
-.video-pavilion-container:-webkit-full-screen .ethnic-corner-br {
-  bottom: 4px !important;
-  right: 4px !important;
-}
-
-.video-pavilion-container:fullscreen .ethnic-crest,
-.video-pavilion-container:-webkit-full-screen .ethnic-crest {
-  width: 114px !important;
-  height: 28px !important;
-}
-
-.video-pavilion-container:fullscreen .ethnic-crest-top,
-.video-pavilion-container:-webkit-full-screen .ethnic-crest-top {
-  top: 2px !important;
-}
-
-.video-pavilion-container:fullscreen .ethnic-crest-bottom,
-.video-pavilion-container:-webkit-full-screen .ethnic-crest-bottom {
-  bottom: 2px !important;
-}
 
 .video-pavilion-container:fullscreen .mandap-footer,
 .video-pavilion-container:-webkit-full-screen .mandap-footer {
@@ -2043,31 +1855,7 @@ body.theater-mode-active .video-pavilion-container {
   .notify-form .btn {
     width: 100%;
   }
-  .ethnic-video-frame {
-    bottom: 42px;
-  }
-  .ethnic-video-frame::before {
-    inset: 4px;
-    border-width: 2.5px;
-  }
-  .ethnic-video-frame::after {
-    inset: 9px;
-    border-width: 1.5px;
-  }
-  .ethnic-corner {
-    width: 36px;
-    height: 36px;
-  }
-  .ethnic-corner-tl { top: 2px; left: 2px; }
-  .ethnic-corner-tr { top: 2px; right: 2px; }
-  .ethnic-corner-bl { bottom: 2px; left: 2px; }
-  .ethnic-corner-br { bottom: 2px; right: 2px; }
-  .ethnic-crest {
-    width: 65px;
-    height: 16px;
-  }
-  .ethnic-crest-top { top: 1px; }
-  .ethnic-crest-bottom { bottom: 1px; }
+
 }
 
 /* ==========================================================================
