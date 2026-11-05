@@ -7,6 +7,7 @@ with fallback to Google Drive proxy.
 import http.server
 import socketserver
 import urllib.request
+import urllib.parse
 import os
 import re
 import mimetypes
@@ -40,6 +41,8 @@ class StreamingHandler(http.server.SimpleHTTPRequestHandler):
             self.handle_get_likes()
         elif self.path.startswith('/api/stream-video'):
             self.stream_video(is_head=False)
+        elif self.path.startswith('/api/drive-image'):
+            self.proxy_drive_image()
         else:
             super().do_GET()
 
@@ -100,6 +103,43 @@ class StreamingHandler(http.server.SimpleHTTPRequestHandler):
             self.wfile.write(resp)
         except Exception as e:
             self.send_error(500, str(e))
+
+    def proxy_drive_image(self):
+        query = urllib.parse.urlparse(self.path).query
+        params = urllib.parse.parse_qs(query)
+        file_id = params.get('id', [''])[0]
+        w = params.get('w', ['1200'])[0]
+        if not file_id:
+            self.send_error(400, "Missing id parameter")
+            return
+        
+        target_url = f"https://lh3.googleusercontent.com/d/{file_id}=w{w}"
+        req = urllib.request.Request(target_url, headers={
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+        })
+        try:
+            with urllib.request.urlopen(req) as resp:
+                data = resp.read()
+                self.send_response(200)
+                self.send_header('Content-Type', resp.headers.get('Content-Type', 'image/jpeg'))
+                self.send_header('Content-Length', str(len(data)))
+                self.send_header('Cache-Control', 'public, max-age=86400')
+                self.end_headers()
+                self.wfile.write(data)
+        except Exception as e:
+            # Fallback to direct uc view
+            try:
+                fallback_url = f"https://drive.google.com/uc?export=view&id={file_id}"
+                req2 = urllib.request.Request(fallback_url, headers={"User-Agent": "Mozilla/5.0"})
+                with urllib.request.urlopen(req2) as resp2:
+                    data = resp2.read()
+                    self.send_response(200)
+                    self.send_header('Content-Type', resp2.headers.get('Content-Type', 'image/jpeg'))
+                    self.send_header('Content-Length', str(len(data)))
+                    self.end_headers()
+                    self.wfile.write(data)
+            except Exception as e2:
+                self.send_error(502, f"Upstream error: {e2}")
 
     def stream_video(self, is_head=False):
         # 1. Prefer local video file if available for ultra-fast local testing
